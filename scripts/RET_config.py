@@ -5,18 +5,48 @@ Created on Fri Jan 22 15:40:24 2021
 
 @author: ret
 """
+import datetime 
+import csv
+
+real_time_processing = True
+stop_thread = False   
+
+## global variable for the socket communication
+socket_host = '10.4.11.117'
+socket_port = 5017
+
+## global variable for the data storage
+influxdb_host="localhost"
+influxdb_port="8086"
+influxdb = "RET_Test"
+
+## global variable for csv logfile
+
+
+## global variable to test
+robot_settle_time = 0.01
+acceleration_factor = 1.7
+velocity_factor = 1.57
 
 class Btn():
-    def __init__(self,name,x,y,z):
+    def __init__(self,name,x,y,z,bouncetime):
         self.name = name
         self.x = x
         self.y = y
         self.z = z
+        self.bouncetime=bouncetime
         pass
     
 class Btn_area(Btn):
     def __init__(self,Btn,dx,dy,dz):
         self.name = Btn.name
+        self.bouncetime = Btn.bouncetime
+        self.x = Btn.x
+        self.y = Btn.y
+        self.z = Btn.z
+        self.dx = dx
+        self.dy = dy
+        self.dz = dz
         self.upper_x = Btn.x + dx
         self.upper_y = Btn.y + dy
         self.upper_z = Btn.z + dz
@@ -25,15 +55,33 @@ class Btn_area(Btn):
         self.lower_z = Btn.z - dz  
         self.end_effector_inside_area = False
         self.send_message_entering_area = False
+        self.time_end_effector_entering_area = datetime.datetime.utcnow()
         self.send_message_leaving_area = False
+        self.time_end_effector_leaving_area = datetime.datetime.utcnow()
         pass
  
-stop_thread = False    
-delta_area = [0.06,0.0,0.05]    
-Btn1 = Btn("Btn1",-0.1,-0.47,0.155)
-Btn2 = Btn("Btn2",0.05,-0.47,0.155)
+ ## definition of the buttons
+delta_area = [0.06,0.05,0.02]    
+bouncetime = 200
+x1 = -0.1
+y1 = -0.47
+z1 = 0.153
+x2 = 0.05
+y2 = -0.47
+z2 = 0.153
+Btn1 = Btn("Btn1",x1,y1,z1,bouncetime)
+Btn2 = Btn("Btn2",x2,y2,z2,bouncetime)
 
 Btn1_area = Btn_area(Btn1, delta_area[0], delta_area[1], delta_area[2])
 Btn2_area = Btn_area(Btn2, delta_area[0], delta_area[1], delta_area[2])
 
 list_buttons_area = [Btn1_area,Btn2_area]
+
+### log into csv
+#csv_name_file = ("RET_csv_logfile/"+ button_names + str(list_buttons_positions) + "["+ str(list_buttons_area[0].dx) + ";" + str(list_buttons_area[0].dy) + ";"  + 
+#str(list_buttons_area[0].dz) + "]_bouncetime_" + str(list_bouncetime) +"_acceleration_factor_[" + str(acceleration_factor) +"]_velocity_factor_["+ str(velocity_factor) + "]_robot_settle_time_"+
+#str(robot_settle_time) + "]_ROS.csv")
+#
+#with open(self.csv_name_file,"aw") as csv_file:
+#    writer = csv.writer(csv_file,delimiter=";",lineterminator="\n")
+#    writer.writerow(self.csv_header)
