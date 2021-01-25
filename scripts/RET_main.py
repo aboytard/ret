@@ -6,12 +6,35 @@ Created on Thu Jan 21 09:48:38 2021
 @author: ret
 """
 
+# @mainpage RET Project Alban
+# @section description_main Description 
+# The application you run for the RET to communicate with the Rpi.
+# The movement of the robot, the end effector cartesian position, the information about the button are the input of this function
+# The output of the application is to know if the button are pressed inside an interval of time
+# The interval of time is defined as the time the end effector enter and live the button's area
+#
+# @section notes_main Notes
+
+# @file RET_main.py
+#
+#@section libraries_RET_main Libraries/Modules
+# Custom class in : RET_config, RET_Parameter, RET_socket, RET_data_processing
+
+#@section todo_ret TODO
+# - Run the RET for at least 12h
+
+# @section author_doxygen_example Author
+# -Created by Alban Boytard on 25/01/2021
+
+
+# Imports
 import Button_Masher_Application_Output
 import RET_Parameter
 import RET_socket
 import RET_config
 import RET_data_processing
 
+#Functions
 def main(list_buttons_area):
     ##create listener of the Button Masher Application
     my_Button_Masher_Application_Output = Button_Masher_Application_Output.Button_Masher_Application_node_listener()

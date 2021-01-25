@@ -6,6 +6,23 @@ Created on Thu Jan 21 12:50:30 2021
 @author: ret
 """
 
+# @file RET_data_processing.py
+#
+# @brief Defines the RET_data_processing class.
+#
+# @section RET_data_processing Description
+# Define the base and end parameter we are processing during the RET
+#
+# @section libraries_RET_data_processing Libraries/Modules
+# - standard modules : enable to use python with ROS
+#       - threading
+#       - datetime
+#       - InfluxDBClient
+#       - csv
+# -custom class :
+#       - RET_Parameter
+#       - Btn_area defined in RET_config
+
 import RET_Parameter
 import RET_config
 
@@ -15,7 +32,14 @@ from influxdb import InfluxDBClient
 import csv
 
 class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
+    """! The RET_data_processing class.
+    Provides access to the processing of the data in the RET.
+    """
     def __init__(self,parameter):
+        """! The RET_data_processing class initializer.
+        @param parameter  The parameter of the RET we are processing that includes the data we work with.
+        @return  A thread instance that process the data while the RET is running.
+        """
         threading.Thread.__init__(self)
         self.parameter = parameter
         ## add a parameter that determine which button we have to work on, instead of working on every button of the list anytime
@@ -29,6 +53,9 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
         pass
     
     def end_effector_inside_Btn_area(self):
+        """! Retrieves the end effector cartesian position description.
+        @return  The event of the end effector entering a button's area.
+        """
         #return the time the end effector enter the button area
         if self.inside_one_button_area == False:
             for button_area in self.parameter.list_buttons_area :
@@ -45,6 +72,9 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
 
 
     def end_effector_outside_Btn_area(self):
+        """! Retrieves the end effector cartesian position description.
+        @return  The event of the end effector leaving a button's area.
+        """
         if self.inside_one_button_area == True:
             for button_area in self.parameter.list_buttons_area :
                 if button_area.name == self.parameter.working_on_button and button_area.end_effector_inside_area == True:
@@ -62,6 +92,10 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
 
     
     def process_time_Btn_pressed(self):
+        """! Retrieves the time the button where pressed detected by the Raspberri Pi.
+        @return  The event of the time the button pressed inside the interval of time the 
+        button is entering and leaving the button area or not.
+        """
         ## process the time of the button is pressed with the time the button enter and leave the button area
         for button_area in self.parameter.list_buttons_area :
                 if button_area.name == self.parameter.working_on_button:
@@ -84,6 +118,10 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
         self.write_into_csv_db()
     
     def write_into_influxdb(self,client):
+        """! Retrieves the time the button where pressed detected by the Raspberri Pi.
+        @parameter client The influxdb databases we want to log the data in.
+        @return  Write the event of the button pressing inside the time interval in the Influxdb.
+        """
         client.create_database(self.parameter.influxdb) 
         client.switch_database(self.parameter.influxdb)
 
@@ -107,15 +145,25 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
         print("writing in Influxdb is made")
     
     def write_json_influxdb_additional_information(self,client):
+        """! Retrieves additional data.
+        @parameter client The influxdb databases we want to log the data in.
+        @return  Write the additional data in the Influxdb.
+        """
         ## add the other node for Ragesh
         pass
     
     def write_into_csv_db(self):
+        """! Retrieves the csv logfile.
+        @return  Write the RET data in the Influxdb.
+        """
         with open('/home/ret/workspaces/ret/src/ret/scripts/RET_csv_logfile/'+self.parameter.csv_name_file,"aw") as f:
             cr = csv.writer(f,delimiter=";",lineterminator="\n")
             cr.writerow(self.parameter.list_to_log)
     
     def run(self):
+        """! Retrieves RET_data_processing class.
+        @return  Launch the thread that processes the data.
+        """
         while RET_config.stop_thread == False:
            self.end_effector_inside_Btn_area()
            self.end_effector_outside_Btn_area()

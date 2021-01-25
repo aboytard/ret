@@ -5,8 +5,23 @@ Created on Fri Jan 22 15:40:24 2021
 
 @author: ret
 """
+
+# @file RET.py
+#
+# @brief Defines the global variable that the RET is using.
+#
+# @section RET_config Description
+# Define the global variable that the RET is using on the computer:
+# - the possibility of real time processing
+# - the possibiliy of stopping the thread when the test is ended
+# - the global variable for the socket communication
+# - the definition of the button's areas we are working with
+# - the databases we are logging the data in
+#
+# @section libraries_RET_config Libraries/Modules
+# - datetime 
+
 import datetime 
-import csv
 
 real_time_processing = True
 stop_thread = False   
@@ -29,16 +44,36 @@ acceleration_factor = 1.7
 velocity_factor = 1.57
 
 class Btn():
+    """! The Btn base class.
+    Defines the base class utilized by all buttons.
+    """
     def __init__(self,name,x,y,z,bouncetime):
+        """! The Btn base class initializer.
+        @param name  The name of the Btn.
+        @param x  The x coordinate of the button.
+        @param y  The y coordinate of the button.
+        @param z  The z coordinate of the button.
+        @param bouncetime  The bouncetime of the button.
+        @return  An instance of the Btn class initialized with the specified name.
+        """
         self.name = name
         self.x = x
         self.y = y
         self.z = z
         self.bouncetime=bouncetime
-        pass
     
 class Btn_area(Btn):
+    """! The Btn_area class.
+    Provide access to the button_area's.
+    """
     def __init__(self,Btn,dx,dy,dz):
+        """! The Btn_area base class initializer.
+        @param Btn  The Btn we are defining the area of.
+        @param dx  The delta on x we are defining for the button area.
+        @param dy  The delta on y we are defining for the button area.
+        @param dz  The delta on z we are defining for the button area.
+        @return  An instance of the Btn_area class initialized with the specified name.
+        """
         self.name = Btn.name
         self.bouncetime = Btn.bouncetime
         self.x = Btn.x
@@ -58,7 +93,6 @@ class Btn_area(Btn):
         self.time_end_effector_entering_area = datetime.datetime.utcnow()
         self.send_message_leaving_area = False
         self.time_end_effector_leaving_area = datetime.datetime.utcnow()
-        pass
  
  ## definition of the buttons
 delta_area = [0.06,0.05,0.02]    

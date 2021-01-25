@@ -5,6 +5,19 @@ Created on Thu Jan 21 09:39:02 2021
 
 @author: ret
 """
+# @file RET_Parameter.py
+#
+# @brief Defines the RET_Parameter class.
+#
+# @section RET_Parameter Description
+# Define the base and end parameter we are using during the RET composed by:
+# - an instance of the Button_Masher_Application_Output
+# - an instance of the RET_config
+#
+# @section libraries_RET_Parameter Libraries/Modules
+# - rospy : enable to use python with ROS
+# - geometry_msgs.msg.PoseStamped : define the type of message we want to listen when we subscribe a topic
+
 
 import datetime
 import Button_Masher_Application_Output
@@ -14,7 +27,15 @@ import csv
 ########## The input of this function is the cartesian position of the end effector given by another node!!!!!!!!!!!!!!!
 
 class RET_Parameter(Button_Masher_Application_Output.Button_Masher_Application_node_listener):
+    """! The RET_Parameter base class.
+    Defines the base class utilized by all classes in the RET.
+    """
     def __init__(self,ButtonMasherApplication_output,list_buttons_area):
+        """! The RET_Parameter base class initializer.
+        @param ButtonMasherApplication_output  The end effector cartesian position.
+        @param list_buttons_area The list of the buttons'area we are working with.
+        @return  An instance of the RET_parameter class initialized with the specified name.
+        """
         self.test = False
         #### Global Parameter of the RET
         self.time_begin_RET = datetime.datetime.utcnow()
@@ -68,7 +89,15 @@ class RET_Parameter(Button_Masher_Application_Output.Button_Masher_Application_n
         self.open_csv_file()
         
     def open_csv_file(self):
-        with open('/home/ret/workspaces/ret/src/ret/scripts/RET_csv_logfile/'+self.csv_name_file,"w") as f:
-            cr = csv.writer(f,delimiter=";",lineterminator="\n")
-            cr.writerow(self.csv_header)
+        """! Retrieves the csv logfile we are logging the data in.
+        @return  a csv file where we can log the data for a RET.
+        """
+        try:
+            with open('/home/ret/workspaces/ret/src/ret/scripts/RET_csv_logfile/'+self.csv_name_file,"aw") as f:
+                cr = csv.writer(f,delimiter=";",lineterminator="\n")
+                cr.writerow(self.csv_header)                
+        except:
+            with open('/home/ret/workspaces/ret/src/ret/scripts/RET_csv_logfile/'+self.csv_name_file,"w") as f:
+                cr = csv.writer(f,delimiter=";",lineterminator="\n")
+                cr.writerow(self.csv_header)
   
