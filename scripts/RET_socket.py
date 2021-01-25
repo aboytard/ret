@@ -54,6 +54,7 @@ class Computer_ReceiveMessage_Rpi(threading.Thread,RET_Parameter.RET_Parameter):
             print "*" + received_message + "*"
             if received_message == "":
                 print("We received a "" message so we stop the socket communication")
+                RET_config.stop_thread = True
                 break
             try:
                 self.parameter.list_msg_Btn_Pressed = received_message.split(";")

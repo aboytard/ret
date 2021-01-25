@@ -1,0 +1,4 @@
+<map id="Computer_ReceiveMessage_Rpi" name="Computer_ReceiveMessage_Rpi">
+<area shape="rect" id="node3" href="$classRET__Parameter_1_1RET__Parameter.html" title="The input of this function is the cartesian position of the end effector given by another node!!!!!!!..." alt="" coords="112,95,228,121"/>
+<area shape="rect" id="node4" href="$classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener.html" title="The Button_Masher_Application_node_listener base class. " alt="" coords="79,5,261,47"/>
+</map>

@@ -1,0 +1,245 @@
+\hypertarget{classRET__data__processing_1_1RET__data__processing}{}\section{R\+E\+T\+\_\+data\+\_\+processing Class Reference}
+\label{classRET__data__processing_1_1RET__data__processing}\index{R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing}}
+
+
+The \hyperlink{classRET__data__processing_1_1RET__data__processing}{R\+E\+T\+\_\+data\+\_\+processing} class.  
+
+
+
+
+Inheritance diagram for R\+E\+T\+\_\+data\+\_\+processing\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=257pt]{classRET__data__processing_1_1RET__data__processing__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for R\+E\+T\+\_\+data\+\_\+processing\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=257pt]{classRET__data__processing_1_1RET__data__processing__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classRET__data__processing_1_1RET__data__processing_a297f3b1ee42e9ff40c0ec84bb5996ea5}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, \hyperlink{classRET__data__processing_1_1RET__data__processing_a0d71b5c1dcca8d3fee88d6a11d3e2071}{parameter})
+\begin{DoxyCompactList}\small\item\em The \hyperlink{classRET__data__processing_1_1RET__data__processing}{R\+E\+T\+\_\+data\+\_\+processing} class initializer. \end{DoxyCompactList}\item 
+def \hyperlink{classRET__data__processing_1_1RET__data__processing_a33b438266e6f03807f16bd4792855730}{end\+\_\+effector\+\_\+inside\+\_\+\+Btn\+\_\+area} (self)
+\begin{DoxyCompactList}\small\item\em Retrieves the end effector cartesian position description. \end{DoxyCompactList}\item 
+def \hyperlink{classRET__data__processing_1_1RET__data__processing_a5b693dc8f5167e8338541cc72ed583dc}{end\+\_\+effector\+\_\+outside\+\_\+\+Btn\+\_\+area} (self)
+\begin{DoxyCompactList}\small\item\em Retrieves the end effector cartesian position description. \end{DoxyCompactList}\item 
+def \hyperlink{classRET__data__processing_1_1RET__data__processing_af0d2380cd9fe71bf71ab9b25903cebc2}{process\+\_\+time\+\_\+\+Btn\+\_\+pressed} (self)
+\begin{DoxyCompactList}\small\item\em Retrieves the time the button where pressed detected by the Raspberri Pi. \end{DoxyCompactList}\item 
+def \hyperlink{classRET__data__processing_1_1RET__data__processing_ad22709b2e67308af35f55680d5a026e0}{run} (self)
+\begin{DoxyCompactList}\small\item\em Retrieves \hyperlink{classRET__data__processing_1_1RET__data__processing}{R\+E\+T\+\_\+data\+\_\+processing} class. \end{DoxyCompactList}\item 
+def \hyperlink{classRET__data__processing_1_1RET__data__processing_a53cc9f2963d8567e8f2be4663fbe2d92}{write\+\_\+into\+\_\+csv\+\_\+db} (self)
+\begin{DoxyCompactList}\small\item\em Retrieves the csv logfile. \end{DoxyCompactList}\item 
+def \hyperlink{classRET__data__processing_1_1RET__data__processing_a8edbf01e68042082bbe5bc8c967f710e}{write\+\_\+into\+\_\+influxdb} (self, \hyperlink{classRET__data__processing_1_1RET__data__processing_ad5bc32b75da65fe60067f501a4bb6665}{client})
+\begin{DoxyCompactList}\small\item\em Retrieves the time the button where pressed detected by the Raspberri Pi. \end{DoxyCompactList}\item 
+def \hyperlink{classRET__data__processing_1_1RET__data__processing_a7ced1bb55d644f56ba40295ffed86c92}{write\+\_\+json\+\_\+influxdb\+\_\+additional\+\_\+information} (self, \hyperlink{classRET__data__processing_1_1RET__data__processing_ad5bc32b75da65fe60067f501a4bb6665}{client})
+\begin{DoxyCompactList}\small\item\em Retrieves additional data. \end{DoxyCompactList}\item 
+def \hyperlink{classRET__data__processing_1_1RET__data__processing_abb33542be6fa47a380328883d58d1c79}{write\+\_\+json\+\_\+influxdb\+\_\+\+R\+ET} (self, \hyperlink{classRET__data__processing_1_1RET__data__processing_ad5bc32b75da65fe60067f501a4bb6665}{client})
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRET__data__processing_1_1RET__data__processing_ad5bc32b75da65fe60067f501a4bb6665}{client}
+\begin{DoxyCompactList}\small\item\em argument for Influxdb \end{DoxyCompactList}\item 
+\hyperlink{classRET__data__processing_1_1RET__data__processing_af140727efa8da9cde0e592a61407d62f}{inside\+\_\+one\+\_\+button\+\_\+area}
+\begin{DoxyCompactList}\small\item\em settle arguments to deal only with one Btn at the time, we cannot process every button of the list anytime \end{DoxyCompactList}\item 
+\hyperlink{classRET__data__processing_1_1RET__data__processing_acbbf8e6a1d50b851956b602b4b62407d}{len\+\_\+list\+\_\+buttons\+\_\+area}
+\begin{DoxyCompactList}\small\item\em add a parameter that determine which button we have to work on, instead of working on every button of the list anytime \end{DoxyCompactList}\item 
+\hyperlink{classRET__data__processing_1_1RET__data__processing_a0d71b5c1dcca8d3fee88d6a11d3e2071}{parameter}
+\item 
+\hyperlink{classRET__data__processing_1_1RET__data__processing_ae694f95e6ad7f44763d44d68466b8011}{process\+\_\+data}
+\item 
+\hyperlink{classRET__data__processing_1_1RET__data__processing_a96204c1a4417d5a3a980521f8a66a1fa}{working\+\_\+on\+\_\+button}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classRET__data__processing_1_1RET__data__processing}{R\+E\+T\+\_\+data\+\_\+processing} class. 
+
+Provides access to the processing of the data in the R\+ET. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRET__data__processing_1_1RET__data__processing_a297f3b1ee42e9ff40c0ec84bb5996ea5}\label{classRET__data__processing_1_1RET__data__processing_a297f3b1ee42e9ff40c0ec84bb5996ea5}} 
+\index{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{parameter }\end{DoxyParamCaption})}
+
+
+
+The \hyperlink{classRET__data__processing_1_1RET__data__processing}{R\+E\+T\+\_\+data\+\_\+processing} class initializer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parameter} & The parameter of the R\+ET we are processing that includes the data we work with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A thread instance that process the data while the R\+ET is running. 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classRET__data__processing_1_1RET__data__processing_a33b438266e6f03807f16bd4792855730}\label{classRET__data__processing_1_1RET__data__processing_a33b438266e6f03807f16bd4792855730}} 
+\index{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}!end\+\_\+effector\+\_\+inside\+\_\+\+Btn\+\_\+area@{end\+\_\+effector\+\_\+inside\+\_\+\+Btn\+\_\+area}}
+\index{end\+\_\+effector\+\_\+inside\+\_\+\+Btn\+\_\+area@{end\+\_\+effector\+\_\+inside\+\_\+\+Btn\+\_\+area}!R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}}
+\subsubsection{\texorpdfstring{end\+\_\+effector\+\_\+inside\+\_\+\+Btn\+\_\+area()}{end\_effector\_inside\_Btn\_area()}}
+{\footnotesize\ttfamily def end\+\_\+effector\+\_\+inside\+\_\+\+Btn\+\_\+area (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Retrieves the end effector cartesian position description. 
+
+\begin{DoxyReturn}{Returns}
+The event of the end effector entering a button\textquotesingle{}s area. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRET__data__processing_1_1RET__data__processing_a5b693dc8f5167e8338541cc72ed583dc}\label{classRET__data__processing_1_1RET__data__processing_a5b693dc8f5167e8338541cc72ed583dc}} 
+\index{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}!end\+\_\+effector\+\_\+outside\+\_\+\+Btn\+\_\+area@{end\+\_\+effector\+\_\+outside\+\_\+\+Btn\+\_\+area}}
+\index{end\+\_\+effector\+\_\+outside\+\_\+\+Btn\+\_\+area@{end\+\_\+effector\+\_\+outside\+\_\+\+Btn\+\_\+area}!R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}}
+\subsubsection{\texorpdfstring{end\+\_\+effector\+\_\+outside\+\_\+\+Btn\+\_\+area()}{end\_effector\_outside\_Btn\_area()}}
+{\footnotesize\ttfamily def end\+\_\+effector\+\_\+outside\+\_\+\+Btn\+\_\+area (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Retrieves the end effector cartesian position description. 
+
+\begin{DoxyReturn}{Returns}
+The event of the end effector leaving a button\textquotesingle{}s area. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRET__data__processing_1_1RET__data__processing_af0d2380cd9fe71bf71ab9b25903cebc2}\label{classRET__data__processing_1_1RET__data__processing_af0d2380cd9fe71bf71ab9b25903cebc2}} 
+\index{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}!process\+\_\+time\+\_\+\+Btn\+\_\+pressed@{process\+\_\+time\+\_\+\+Btn\+\_\+pressed}}
+\index{process\+\_\+time\+\_\+\+Btn\+\_\+pressed@{process\+\_\+time\+\_\+\+Btn\+\_\+pressed}!R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}}
+\subsubsection{\texorpdfstring{process\+\_\+time\+\_\+\+Btn\+\_\+pressed()}{process\_time\_Btn\_pressed()}}
+{\footnotesize\ttfamily def process\+\_\+time\+\_\+\+Btn\+\_\+pressed (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Retrieves the time the button where pressed detected by the Raspberri Pi. 
+
+\begin{DoxyReturn}{Returns}
+The event of the time the button pressed inside the interval of time the button is entering and leaving the button area or not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRET__data__processing_1_1RET__data__processing_ad22709b2e67308af35f55680d5a026e0}\label{classRET__data__processing_1_1RET__data__processing_ad22709b2e67308af35f55680d5a026e0}} 
+\index{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}!run@{run}}
+\index{run@{run}!R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}}
+\subsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def run (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Retrieves \hyperlink{classRET__data__processing_1_1RET__data__processing}{R\+E\+T\+\_\+data\+\_\+processing} class. 
+
+\begin{DoxyReturn}{Returns}
+Launch the thread that processes the data. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRET__data__processing_1_1RET__data__processing_a53cc9f2963d8567e8f2be4663fbe2d92}\label{classRET__data__processing_1_1RET__data__processing_a53cc9f2963d8567e8f2be4663fbe2d92}} 
+\index{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}!write\+\_\+into\+\_\+csv\+\_\+db@{write\+\_\+into\+\_\+csv\+\_\+db}}
+\index{write\+\_\+into\+\_\+csv\+\_\+db@{write\+\_\+into\+\_\+csv\+\_\+db}!R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}}
+\subsubsection{\texorpdfstring{write\+\_\+into\+\_\+csv\+\_\+db()}{write\_into\_csv\_db()}}
+{\footnotesize\ttfamily def write\+\_\+into\+\_\+csv\+\_\+db (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Retrieves the csv logfile. 
+
+\begin{DoxyReturn}{Returns}
+Write the R\+ET data in the Influxdb. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRET__data__processing_1_1RET__data__processing_a8edbf01e68042082bbe5bc8c967f710e}\label{classRET__data__processing_1_1RET__data__processing_a8edbf01e68042082bbe5bc8c967f710e}} 
+\index{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}!write\+\_\+into\+\_\+influxdb@{write\+\_\+into\+\_\+influxdb}}
+\index{write\+\_\+into\+\_\+influxdb@{write\+\_\+into\+\_\+influxdb}!R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}}
+\subsubsection{\texorpdfstring{write\+\_\+into\+\_\+influxdb()}{write\_into\_influxdb()}}
+{\footnotesize\ttfamily def write\+\_\+into\+\_\+influxdb (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{client }\end{DoxyParamCaption})}
+
+
+
+Retrieves the time the button where pressed detected by the Raspberri Pi. 
+
+client The influxdb databases we want to log the data in. \begin{DoxyReturn}{Returns}
+Write the event of the button pressing inside the time interval in the Influxdb. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRET__data__processing_1_1RET__data__processing_a7ced1bb55d644f56ba40295ffed86c92}\label{classRET__data__processing_1_1RET__data__processing_a7ced1bb55d644f56ba40295ffed86c92}} 
+\index{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}!write\+\_\+json\+\_\+influxdb\+\_\+additional\+\_\+information@{write\+\_\+json\+\_\+influxdb\+\_\+additional\+\_\+information}}
+\index{write\+\_\+json\+\_\+influxdb\+\_\+additional\+\_\+information@{write\+\_\+json\+\_\+influxdb\+\_\+additional\+\_\+information}!R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}}
+\subsubsection{\texorpdfstring{write\+\_\+json\+\_\+influxdb\+\_\+additional\+\_\+information()}{write\_json\_influxdb\_additional\_information()}}
+{\footnotesize\ttfamily def write\+\_\+json\+\_\+influxdb\+\_\+additional\+\_\+information (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{client }\end{DoxyParamCaption})}
+
+
+
+Retrieves additional data. 
+
+client The influxdb databases we want to log the data in. \begin{DoxyReturn}{Returns}
+Write the additional data in the Influxdb. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRET__data__processing_1_1RET__data__processing_abb33542be6fa47a380328883d58d1c79}\label{classRET__data__processing_1_1RET__data__processing_abb33542be6fa47a380328883d58d1c79}} 
+\index{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}!write\+\_\+json\+\_\+influxdb\+\_\+\+R\+ET@{write\+\_\+json\+\_\+influxdb\+\_\+\+R\+ET}}
+\index{write\+\_\+json\+\_\+influxdb\+\_\+\+R\+ET@{write\+\_\+json\+\_\+influxdb\+\_\+\+R\+ET}!R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}}
+\subsubsection{\texorpdfstring{write\+\_\+json\+\_\+influxdb\+\_\+\+R\+E\+T()}{write\_json\_influxdb\_RET()}}
+{\footnotesize\ttfamily def write\+\_\+json\+\_\+influxdb\+\_\+\+R\+ET (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{client }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classRET__data__processing_1_1RET__data__processing_ad5bc32b75da65fe60067f501a4bb6665}\label{classRET__data__processing_1_1RET__data__processing_ad5bc32b75da65fe60067f501a4bb6665}} 
+\index{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}!client@{client}}
+\index{client@{client}!R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}}
+\subsubsection{\texorpdfstring{client}{client}}
+{\footnotesize\ttfamily client}
+
+
+
+argument for Influxdb 
+
+\mbox{\Hypertarget{classRET__data__processing_1_1RET__data__processing_af140727efa8da9cde0e592a61407d62f}\label{classRET__data__processing_1_1RET__data__processing_af140727efa8da9cde0e592a61407d62f}} 
+\index{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}!inside\+\_\+one\+\_\+button\+\_\+area@{inside\+\_\+one\+\_\+button\+\_\+area}}
+\index{inside\+\_\+one\+\_\+button\+\_\+area@{inside\+\_\+one\+\_\+button\+\_\+area}!R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}}
+\subsubsection{\texorpdfstring{inside\+\_\+one\+\_\+button\+\_\+area}{inside\_one\_button\_area}}
+{\footnotesize\ttfamily inside\+\_\+one\+\_\+button\+\_\+area}
+
+
+
+settle arguments to deal only with one Btn at the time, we cannot process every button of the list anytime 
+
+\mbox{\Hypertarget{classRET__data__processing_1_1RET__data__processing_acbbf8e6a1d50b851956b602b4b62407d}\label{classRET__data__processing_1_1RET__data__processing_acbbf8e6a1d50b851956b602b4b62407d}} 
+\index{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}!len\+\_\+list\+\_\+buttons\+\_\+area@{len\+\_\+list\+\_\+buttons\+\_\+area}}
+\index{len\+\_\+list\+\_\+buttons\+\_\+area@{len\+\_\+list\+\_\+buttons\+\_\+area}!R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}}
+\subsubsection{\texorpdfstring{len\+\_\+list\+\_\+buttons\+\_\+area}{len\_list\_buttons\_area}}
+{\footnotesize\ttfamily len\+\_\+list\+\_\+buttons\+\_\+area}
+
+
+
+add a parameter that determine which button we have to work on, instead of working on every button of the list anytime 
+
+\mbox{\Hypertarget{classRET__data__processing_1_1RET__data__processing_a0d71b5c1dcca8d3fee88d6a11d3e2071}\label{classRET__data__processing_1_1RET__data__processing_a0d71b5c1dcca8d3fee88d6a11d3e2071}} 
+\index{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}!parameter@{parameter}}
+\index{parameter@{parameter}!R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}}
+\subsubsection{\texorpdfstring{parameter}{parameter}}
+{\footnotesize\ttfamily parameter}
+
+\mbox{\Hypertarget{classRET__data__processing_1_1RET__data__processing_ae694f95e6ad7f44763d44d68466b8011}\label{classRET__data__processing_1_1RET__data__processing_ae694f95e6ad7f44763d44d68466b8011}} 
+\index{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}!process\+\_\+data@{process\+\_\+data}}
+\index{process\+\_\+data@{process\+\_\+data}!R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}}
+\subsubsection{\texorpdfstring{process\+\_\+data}{process\_data}}
+{\footnotesize\ttfamily process\+\_\+data}
+
+\mbox{\Hypertarget{classRET__data__processing_1_1RET__data__processing_a96204c1a4417d5a3a980521f8a66a1fa}\label{classRET__data__processing_1_1RET__data__processing_a96204c1a4417d5a3a980521f8a66a1fa}} 
+\index{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}!working\+\_\+on\+\_\+button@{working\+\_\+on\+\_\+button}}
+\index{working\+\_\+on\+\_\+button@{working\+\_\+on\+\_\+button}!R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}}
+\subsubsection{\texorpdfstring{working\+\_\+on\+\_\+button}{working\_on\_button}}
+{\footnotesize\ttfamily working\+\_\+on\+\_\+button}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/ret/workspaces/ret/src/ret/scripts/\hyperlink{RET__data__processing_8py}{R\+E\+T\+\_\+data\+\_\+processing.\+py}\end{DoxyCompactItemize}

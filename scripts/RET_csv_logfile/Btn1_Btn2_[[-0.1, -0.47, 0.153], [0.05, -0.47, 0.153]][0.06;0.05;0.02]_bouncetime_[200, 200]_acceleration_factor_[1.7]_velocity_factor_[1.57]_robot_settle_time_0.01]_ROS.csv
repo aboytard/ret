@@ -12,3 +12,12 @@ datetime.utcnow;Btn_name;Action;In_Time_Interval
 2021-01-25 16:07:33.679638;Btn1;pressed;True
 2021-01-25 16:07:36.179285;Btn2;pressed;True
 2021-01-25 16:07:36.179285;Btn2;pressed;True;False
+datetime.utcnow;Btn_name;Action;In_Time_Interval
+datetime.utcnow;Btn_name;Action;In_Time_Interval
+2021-01-25 17:50:31.200907;Btn2;pressed;False
+datetime.utcnow;Btn_name;Action;In_Time_Interval
+2021-01-25 17:51:10.105415;Btn2;pressed;True
+2021-01-25 17:51:13.141412;Btn1;pressed;True
+2021-01-25 17:51:14.411892;Btn1;pressed;True
+2021-01-25 17:51:17.552054;Btn2;pressed;True
+2021-01-25 17:51:19.108336;Btn2;pressed;True
