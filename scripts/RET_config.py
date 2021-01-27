@@ -22,13 +22,14 @@ Created on Fri Jan 22 15:40:24 2021
 # - datetime 
 
 import datetime 
+import time
 
 real_time_processing = True
 stop_thread = False   
 
 ## global variable for the socket communication
 socket_host = '10.4.11.117'
-socket_port = 5017
+socket_port = 5003
 
 ## global variable for the data storage
 influxdb_host="localhost"
@@ -42,25 +43,24 @@ influxdb = "RET_Test"
 robot_settle_time = 0.01
 acceleration_factor = 1.7
 velocity_factor = 1.57
+minimal_time_interval_button_area = time.time() ### introduce the time from the experiment 2*(mean(time push/unpushed)+time message socket send/receive))
 
 class Btn():
     """! The Btn base class.
     Defines the base class utilized by all buttons.
     """
-    def __init__(self,name,x,y,z,bouncetime):
+    def __init__(self,name,x,y,z):
         """! The Btn base class initializer.
         @param name  The name of the Btn.
         @param x  The x coordinate of the button.
         @param y  The y coordinate of the button.
         @param z  The z coordinate of the button.
-        @param bouncetime  The bouncetime of the button.
         @return  An instance of the Btn class initialized with the specified name.
         """
         self.name = name
         self.x = x
         self.y = y
         self.z = z
-        self.bouncetime=bouncetime
     
 class Btn_area(Btn):
     """! The Btn_area class.
@@ -75,7 +75,6 @@ class Btn_area(Btn):
         @return  An instance of the Btn_area class initialized with the specified name.
         """
         self.name = Btn.name
-        self.bouncetime = Btn.bouncetime
         self.x = Btn.x
         self.y = Btn.y
         self.z = Btn.z
@@ -96,15 +95,14 @@ class Btn_area(Btn):
  
  ## definition of the buttons
 delta_area = [0.06,0.05,0.02]    
-bouncetime = 200
 x1 = -0.1
-y1 = -0.47
-z1 = 0.153
+y1 = -0.45
+z1 = 0.159
 x2 = 0.05
-y2 = -0.47
-z2 = 0.153
-Btn1 = Btn("Btn1",x1,y1,z1,bouncetime)
-Btn2 = Btn("Btn2",x2,y2,z2,bouncetime)
+y2 = -0.45
+z2 = 0.159
+Btn1 = Btn("Btn1",x1,y1,z1)
+Btn2 = Btn("Btn2",x2,y2,z2)
 
 Btn1_area = Btn_area(Btn1, delta_area[0], delta_area[1], delta_area[2])
 Btn2_area = Btn_area(Btn2, delta_area[0], delta_area[1], delta_area[2])
