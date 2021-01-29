@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['velocity_5ffactor',['velocity_factor',['../classRET__Parameter_1_1RET__Parameter.html#a082e6ba9804a6094336b4c267262460e',1,'RET_Parameter.RET_Parameter.velocity_factor()'],['../namespaceRET__config.html#a0fee7ae942bb4b6078c6400331aef6f1',1,'RET_config.velocity_factor()']]]
+  ['upper_5fx',['upper_x',['../classRET__config_1_1Btn__area.html#a5fc95389df55bf4e81e2c0eec403a7ee',1,'RET_config::Btn_area']]],
+  ['upper_5fy',['upper_y',['../classRET__config_1_1Btn__area.html#af3d0698df9e9a8a5fb89a126a503bfbd',1,'RET_config::Btn_area']]],
+  ['upper_5fz',['upper_z',['../classRET__config_1_1Btn__area.html#a5180143a531a7caaefecdd56d378de44',1,'RET_config::Btn_area']]]
 ];

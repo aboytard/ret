@@ -81,7 +81,7 @@ class RET_Parameter(Button_Masher_Application_Output.Button_Masher_Application_n
             list_button_positions.append(button_area.y)
             list_button_positions.append(button_area.z)
             self.list_buttons_positions.append(list_button_positions)
-        self.influxdb_measurement = ( "RET_Test" + self.button_names + str(self.list_buttons_positions) + "["+ str(self.list_buttons_area[0].dx) + ";" + str(self.list_buttons_area[0].dy) + ";"  + 
+        self.influxdb_measurement = ( "RET_Test_v1" + self.button_names + str(self.list_buttons_positions) + "["+ str(self.list_buttons_area[0].dx) + ";" + str(self.list_buttons_area[0].dy) + ";"  + 
         str(self.list_buttons_area[0].dz) + "]_acceleration_factor_[" + str(self.acceleration_factor) +"]_velocity_factor_["+ str(self.velocity_factor) + "]_robot_settle_time_"+
         str(self.robot_settle_time) + "]_ROS")
         print ("The database in influx db is named: ", self.influxdb)
@@ -89,7 +89,7 @@ class RET_Parameter(Button_Masher_Application_Output.Button_Masher_Application_n
         ##### parameter for writing csv_file
         self.csv_name_file = (self.button_names + str(self.list_buttons_positions) + "["+ str(self.list_buttons_area[0].dx) + ";" + str(self.list_buttons_area[0].dy) + ";"  + 
         str(self.list_buttons_area[0].dz) + "]_bouncetime_" + str(self.list_bouncetime) +"_acceleration_factor_[" + str(self.acceleration_factor) +"]_velocity_factor_["+ str(self.velocity_factor) + "]_robot_settle_time_"+
-        str(self.robot_settle_time) + "]_ROS.csv")
+        str(self.robot_settle_time) + "]_ROS_v1.csv")
         self.csv_header =  ['datetime.utcnow','Btn_name','Action','In_Time_Interval','end_effecto_entering','end_effectorreceived_socket','end_effector_leaving']
         self.open_csv_file()
         

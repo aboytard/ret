@@ -55,13 +55,12 @@ class Computer_ReceiveMessage_Rpi(threading.Thread,RET_Parameter.RET_Parameter):
             if received_message == "":
                 print("We received a "" message so we stop the socket communication")
                 RET_config.stop_thread = True
-                break
             try:
                 self.parameter.list_msg_Btn_Pressed = received_message.split(";")
                 time_to_process = self.parameter.list_msg_Btn_Pressed[0]
                 if self.parameter.list_msg_Btn_Pressed[2] == "pressed":
-                    self.parameter.time_Btn_Pressed = datetime.datetime.strptime(time_to_process, '%Y-%m-%d %H:%M:%S.%f')
                     self.parameter.end_effector_position_received_socket_message_pressed = [self.parameter.time_Btn_Pressed,self.parameter.BtnMasherApplication_output.x,self.parameter.BtnMasherApplication_output.y,self.parameter.BtnMasherApplication_output.z]
+                    self.parameter.time_Btn_Pressed = datetime.datetime.strptime(time_to_process, '%Y-%m-%d %H:%M:%S.%f')
 #                        print (self.parameter.time_Btn_Pressed)
 #                        print(self.list_msg_Btn_Pressed)
 #                        print(self.parameter.BtnMasherApplication_output.x)
@@ -115,7 +114,10 @@ class Computer_SendMessage_Rpi(threading.Thread,RET_Parameter.RET_Parameter):
         while RET_config.stop_thread == False:
             self.send_message_end_effector_entering_button_area()
             self.send_message_end_effector_leaving_button_area()
-            pass         
+            if RET_config.stop_thread == True:
+                self.connection.send("STOP")
+        self.connection.close()
+        
     
 class Computer_SocketClient_RET(RET_Parameter.RET_Parameter):
     """! The Computer_SocketClient_RET RET class.
@@ -140,7 +142,5 @@ class Computer_SocketClient_RET(RET_Parameter.RET_Parameter):
             th_Computer_SendMessage_Rpi = Computer_SendMessage_Rpi(self.parameter,self.connection)
             th_Computer_SendMessage_Rpi.start()
         except KeyboardInterrupt :
-            th_Computer_ReceiveMessage_Rpi._Thread__stop()
-            th_Computer_SendMessage_Rpi._Thread__stop()
-        
+            RET_config.stop_thread = True
 

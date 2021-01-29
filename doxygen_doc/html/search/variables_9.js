@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['real_5ftime_5fprocessing',['real_time_processing',['../namespaceRET__config.html#a4132cf21a6c01ecf59141756ab5f9936',1,'RET_config']]],
-  ['ret_5fdriver',['RET_driver',['../classRET__Parameter_1_1RET__Parameter.html#accada53c1f876f08e9c5beb661846ca1',1,'RET_Parameter::RET_Parameter']]],
-  ['robot_5fsettle_5ftime',['robot_settle_time',['../classRET__Parameter_1_1RET__Parameter.html#a153ea6721b57c14eea55728d46eae779',1,'RET_Parameter.RET_Parameter.robot_settle_time()'],['../namespaceRET__config.html#aff247d8ee094bb439dbb098e236455cb',1,'RET_config.robot_settle_time()']]]
+  ['parameter',['parameter',['../classRET__data__processing_1_1RET__data__processing.html#a0d71b5c1dcca8d3fee88d6a11d3e2071',1,'RET_data_processing.RET_data_processing.parameter()'],['../classRET__socket_1_1Computer__ReceiveMessage__Rpi.html#a0d71b5c1dcca8d3fee88d6a11d3e2071',1,'RET_socket.Computer_ReceiveMessage_Rpi.parameter()'],['../classRET__socket_1_1Computer__SendMessage__Rpi.html#a0d71b5c1dcca8d3fee88d6a11d3e2071',1,'RET_socket.Computer_SendMessage_Rpi.parameter()'],['../classRET__socket_1_1Computer__SocketClient__RET.html#a0d71b5c1dcca8d3fee88d6a11d3e2071',1,'RET_socket.Computer_SocketClient_RET.parameter()']]],
+  ['process_5fdata',['process_data',['../classRET__data__processing_1_1RET__data__processing.html#ae694f95e6ad7f44763d44d68466b8011',1,'RET_data_processing::RET_data_processing']]]
 ];

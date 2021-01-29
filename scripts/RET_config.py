@@ -6,6 +6,7 @@ Created on Fri Jan 22 15:40:24 2021
 @author: ret
 """
 
+
 # @file RET.py
 #
 # @brief Defines the global variable that the RET is using.
@@ -23,13 +24,16 @@ Created on Fri Jan 22 15:40:24 2021
 
 import datetime 
 import time
+import os
 
 real_time_processing = True
 stop_thread = False   
 
+
+
 ## global variable for the socket communication
 socket_host = '10.4.11.117'
-socket_port = 5003
+socket_port = 5004
 
 ## global variable for the data storage
 influxdb_host="localhost"
@@ -94,7 +98,7 @@ class Btn_area(Btn):
         self.time_end_effector_leaving_area = datetime.datetime.utcnow()
  
  ## definition of the buttons
-delta_area = [0.06,0.05,0.02]    
+delta_area = [0.06,0.03,0.01]    
 x1 = -0.1
 y1 = -0.45
 z1 = 0.159

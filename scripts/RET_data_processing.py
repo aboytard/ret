@@ -72,9 +72,10 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
                             self.inside_one_button_area = True
                             self.parameter.working_on_button = button_area.name 
                             button_area.time_end_effector_entering_area = datetime.datetime.utcnow()
-                            self.parameter.end_effector_position_entering_button_area = [button_area.time_end_effector_entering_area,self.parameter.BtnMasherApplication_output.x,self.parameter.BtnMasherApplication_output.y,self.parameter.BtnMasherApplication_output.z]
+                            self.parameter.end_effector_position_entering_button_area = [str(button_area.time_end_effector_entering_area),self.parameter.BtnMasherApplication_output.x,self.parameter.BtnMasherApplication_output.y,self.parameter.BtnMasherApplication_output.z]
                             button_area.send_message_entering_area = True
                             print ("we have enter the area of : ", button_area.name)
+                            self.parameter.BtnMasherApplication_output.print_end_effector_position_information()
 
 
     def end_effector_outside_Btn_area(self):
@@ -93,10 +94,11 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
                         print ("we have left the area of : ", button_area.name)
                         self.inside_one_button_area = False
                         button_area.time_end_effector_leaving_area = datetime.datetime.utcnow()
-                        self.parameter.end_effector_position_leaving_button_area = [button_area.time_end_effector_leaving_area,self.parameter.BtnMasherApplication_output.x,self.parameter.BtnMasherApplication_output.y,self.parameter.BtnMasherApplication_output.z]
+                        self.parameter.end_effector_position_leaving_button_area = [str(button_area.time_end_effector_leaving_area),self.parameter.BtnMasherApplication_output.x,self.parameter.BtnMasherApplication_output.y,self.parameter.BtnMasherApplication_output.z]
                         button_area.send_message_leaving_area = True
-                        self.parameter.time_inside_button_area = self.time_button_leaving_area - self.time_leaving_button_area
+                        self.parameter.time_inside_button_area = self.time_button_leaving_area - self.time_button_entering_area
                         self.process_time_Btn_pressed()
+                        self.parameter.BtnMasherApplication_output.print_end_effector_position_information()
 
 
     
@@ -110,7 +112,6 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
                 if button_area.name == self.parameter.working_on_button:
                     if ((self.parameter.time_Btn_Pressed - button_area.time_end_effector_entering_area >= datetime.timedelta(0, 0, 0)) and 
                         (self.parameter.time_Btn_Pressed - button_area.time_end_effector_leaving_area <= datetime.timedelta(0, 0, 0)) ): 
-                        print("We can write the data in the log file, it was well pressed")
                         self.parameter.list_to_log = self.parameter.list_msg_Btn_Pressed
                         self.parameter.list_to_log.append(True)
                         self.parameter.list_to_log.append(self.parameter.end_effector_position_entering_button_area)
@@ -175,7 +176,7 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
         @return  Write the RET data in the Influxdb.
         """
         with open('/home/ret/workspaces/ret/src/ret/scripts/RET_csv_logfile/'+self.parameter.csv_name_file,"aw") as f:
-            cr = csv.writer(f,delimiter=";",lineterminator="\n")
+            cr = csv.writer(f,delimiter=",",lineterminator="\n")
             cr.writerow(self.parameter.list_to_log)
     
     def run(self):
@@ -185,4 +186,4 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
         while RET_config.stop_thread == False:
            self.end_effector_inside_Btn_area()
            self.end_effector_outside_Btn_area()
-        pass
+        print("thread data_processing is closed")

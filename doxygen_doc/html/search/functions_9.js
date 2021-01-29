@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['write_5finto_5fcsv_5fdb',['write_into_csv_db',['../classRET__data__processing_1_1RET__data__processing.html#a53cc9f2963d8567e8f2be4663fbe2d92',1,'RET_data_processing::RET_data_processing']]],
-  ['write_5finto_5finfluxdb',['write_into_influxdb',['../classRET__data__processing_1_1RET__data__processing.html#a8edbf01e68042082bbe5bc8c967f710e',1,'RET_data_processing::RET_data_processing']]],
-  ['write_5fjson_5finfluxdb_5fadditional_5finformation',['write_json_influxdb_additional_information',['../classRET__data__processing_1_1RET__data__processing.html#a7ced1bb55d644f56ba40295ffed86c92',1,'RET_data_processing::RET_data_processing']]],
-  ['write_5fjson_5finfluxdb_5fret',['write_json_influxdb_RET',['../classRET__data__processing_1_1RET__data__processing.html#abb33542be6fa47a380328883d58d1c79',1,'RET_data_processing::RET_data_processing']]]
+  ['send_5fmessage_5fend_5feffector_5fentering_5fbutton_5farea',['send_message_end_effector_entering_button_area',['../classRET__socket_1_1Computer__SendMessage__Rpi.html#aac6ae8e343bc98b533b1384540a840e5',1,'RET_socket::Computer_SendMessage_Rpi']]],
+  ['send_5fmessage_5fend_5feffector_5fleaving_5fbutton_5farea',['send_message_end_effector_leaving_button_area',['../classRET__socket_1_1Computer__SendMessage__Rpi.html#a8e7a0eb260cc57a97cf2e0293774d253',1,'RET_socket::Computer_SendMessage_Rpi']]]
 ];

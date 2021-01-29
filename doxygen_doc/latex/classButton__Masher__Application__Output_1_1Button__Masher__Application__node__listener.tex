@@ -20,14 +20,24 @@ Inheritance diagram for Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+l
 \item 
 def \hyperlink{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_ae64f0875afe3067b97ba370b354b9213}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self)
 \begin{DoxyCompactList}\small\item\em The \hyperlink{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener}{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener} base class initializer. \end{DoxyCompactList}\item 
+def \hyperlink{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_ab35c2e69050a4f7d87cf90a41f087211}{additional\+\_\+callback} (self, diagnostics)
+\item 
 def \hyperlink{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_ab3b9e5b2975cf90154645eee1c579708}{diagnostics\+\_\+callback} (self, diagnostics)
 \begin{DoxyCompactList}\small\item\em Retrieves the \hyperlink{namespaceButton__Masher__Application__Output}{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output}. \end{DoxyCompactList}\item 
 def \hyperlink{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_a123cdc0332063476801ee93d615ea911}{print\+\_\+end\+\_\+effector\+\_\+position\+\_\+information} (self)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Retrieves the \hyperlink{namespaceButton__Masher__Application__Output}{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_a9f8b9688c7b9b90edfb25073b9b9d727}{actual\+\_\+joint\+\_\+state}
+\item 
+\hyperlink{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_a3b8138a5340814532912cab43b64fa2e}{diagnostics\+\_\+additional}
+\begin{DoxyCompactList}\small\item\em add the listening of the joint position node see if it works \end{DoxyCompactList}\item 
 \hyperlink{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_a547b75f681b266f91f9cc485c2f3b714}{diagnostics\+\_\+sub}
+\item 
+\hyperlink{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_a4e790a9b608d07d8c1273ce749657a55}{encoded\+\_\+state}
+\item 
+\hyperlink{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_a954c5caf30928503ff36b24cc6d6414d}{error\+\_\+state}
 \item 
 \hyperlink{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_a9336ebf25087d91c818ee6e9ec29f8c1}{x}
 \item 
@@ -40,7 +50,7 @@ def \hyperlink{classButton__Masher__Application__Output_1_1Button__Masher__Appli
 \subsection{Detailed Description}
 The \hyperlink{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener}{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener} base class. 
 
-Defines the base class utilized by the R\+ET to subscribe to the /tool\+\_\+pose topic and get the end effector cartesian position. 
+Defines the base class used by the R\+ET to subscribe to the /tool\+\_\+pose topic and get the end effector cartesian position. 
 
 \subsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_ae64f0875afe3067b97ba370b354b9213}\label{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_ae64f0875afe3067b97ba370b354b9213}} 
@@ -56,6 +66,12 @@ The \hyperlink{classButton__Masher__Application__Output_1_1Button__Masher__Appli
 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_ab35c2e69050a4f7d87cf90a41f087211}\label{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_ab35c2e69050a4f7d87cf90a41f087211}} 
+\index{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener@{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener}!additional\+\_\+callback@{additional\+\_\+callback}}
+\index{additional\+\_\+callback@{additional\+\_\+callback}!Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener@{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener}}
+\subsubsection{\texorpdfstring{additional\+\_\+callback()}{additional\_callback()}}
+{\footnotesize\ttfamily def additional\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{diagnostics }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_ab3b9e5b2975cf90154645eee1c579708}\label{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_ab3b9e5b2975cf90154645eee1c579708}} 
 \index{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener@{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener}!diagnostics\+\_\+callback@{diagnostics\+\_\+callback}}
 \index{diagnostics\+\_\+callback@{diagnostics\+\_\+callback}!Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener@{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener}}
@@ -67,7 +83,7 @@ The \hyperlink{classButton__Masher__Application__Output_1_1Button__Masher__Appli
 Retrieves the \hyperlink{namespaceButton__Masher__Application__Output}{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output}. 
 
 \begin{DoxyReturn}{Returns}
-the cartesian position of the end effector while the node tool\+\_\+pose\+\_\+publisher\+\_\+use is running. 
+the affectation of the cartesian position of the end effector while the each time the node subscribe to the /tool\+\_\+pose topic while node tool\+\_\+pose\+\_\+publisher\+\_\+use is running. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_a123cdc0332063476801ee93d615ea911}\label{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_a123cdc0332063476801ee93d615ea911}} 
 \index{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener@{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener}!print\+\_\+end\+\_\+effector\+\_\+position\+\_\+information@{print\+\_\+end\+\_\+effector\+\_\+position\+\_\+information}}
@@ -77,12 +93,47 @@ the cartesian position of the end effector while the node tool\+\_\+pose\+\_\+pu
 
 
 
+Retrieves the \hyperlink{namespaceButton__Masher__Application__Output}{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output}. 
+
+\begin{DoxyReturn}{Returns}
+the cartesian position of the end effector while the node tool\+\_\+pose\+\_\+publisher\+\_\+use is running. 
+\end{DoxyReturn}
+
+
 \subsection{Member Data Documentation}
+\mbox{\Hypertarget{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_a9f8b9688c7b9b90edfb25073b9b9d727}\label{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_a9f8b9688c7b9b90edfb25073b9b9d727}} 
+\index{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener@{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener}!actual\+\_\+joint\+\_\+state@{actual\+\_\+joint\+\_\+state}}
+\index{actual\+\_\+joint\+\_\+state@{actual\+\_\+joint\+\_\+state}!Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener@{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener}}
+\subsubsection{\texorpdfstring{actual\+\_\+joint\+\_\+state}{actual\_joint\_state}}
+{\footnotesize\ttfamily actual\+\_\+joint\+\_\+state}
+
+\mbox{\Hypertarget{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_a3b8138a5340814532912cab43b64fa2e}\label{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_a3b8138a5340814532912cab43b64fa2e}} 
+\index{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener@{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener}!diagnostics\+\_\+additional@{diagnostics\+\_\+additional}}
+\index{diagnostics\+\_\+additional@{diagnostics\+\_\+additional}!Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener@{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener}}
+\subsubsection{\texorpdfstring{diagnostics\+\_\+additional}{diagnostics\_additional}}
+{\footnotesize\ttfamily diagnostics\+\_\+additional}
+
+
+
+add the listening of the joint position node see if it works 
+
 \mbox{\Hypertarget{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_a547b75f681b266f91f9cc485c2f3b714}\label{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_a547b75f681b266f91f9cc485c2f3b714}} 
 \index{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener@{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener}!diagnostics\+\_\+sub@{diagnostics\+\_\+sub}}
 \index{diagnostics\+\_\+sub@{diagnostics\+\_\+sub}!Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener@{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener}}
 \subsubsection{\texorpdfstring{diagnostics\+\_\+sub}{diagnostics\_sub}}
 {\footnotesize\ttfamily diagnostics\+\_\+sub}
+
+\mbox{\Hypertarget{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_a4e790a9b608d07d8c1273ce749657a55}\label{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_a4e790a9b608d07d8c1273ce749657a55}} 
+\index{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener@{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener}!encoded\+\_\+state@{encoded\+\_\+state}}
+\index{encoded\+\_\+state@{encoded\+\_\+state}!Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener@{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener}}
+\subsubsection{\texorpdfstring{encoded\+\_\+state}{encoded\_state}}
+{\footnotesize\ttfamily encoded\+\_\+state}
+
+\mbox{\Hypertarget{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_a954c5caf30928503ff36b24cc6d6414d}\label{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_a954c5caf30928503ff36b24cc6d6414d}} 
+\index{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener@{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener}!error\+\_\+state@{error\+\_\+state}}
+\index{error\+\_\+state@{error\+\_\+state}!Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener@{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener}}
+\subsubsection{\texorpdfstring{error\+\_\+state}{error\_state}}
+{\footnotesize\ttfamily error\+\_\+state}
 
 \mbox{\Hypertarget{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_a9336ebf25087d91c818ee6e9ec29f8c1}\label{classButton__Masher__Application__Output_1_1Button__Masher__Application__node__listener_a9336ebf25087d91c818ee6e9ec29f8c1}} 
 \index{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener@{Button\+\_\+\+Masher\+\_\+\+Application\+\_\+\+Output\+::\+Button\+\_\+\+Masher\+\_\+\+Application\+\_\+node\+\_\+listener}!x@{x}}

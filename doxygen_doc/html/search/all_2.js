@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['bouncetime',['bouncetime',['../classRET__config_1_1Btn.html#a4b8980abcbbe29171f010fbaf958e5aa',1,'RET_config.Btn.bouncetime()'],['../classRET__config_1_1Btn__area.html#a4b8980abcbbe29171f010fbaf958e5aa',1,'RET_config.Btn_area.bouncetime()'],['../namespaceRET__config.html#a6c0865cd5d0010294697d27a2e89069d',1,'RET_config.bouncetime()']]],
   ['btn',['Btn',['../classRET__config_1_1Btn.html',1,'RET_config']]],
   ['btn1',['Btn1',['../namespaceRET__config.html#af037c6b9ff0314103d8127acc9d07e0b',1,'RET_config']]],
   ['btn1_5farea',['Btn1_area',['../namespaceRET__config.html#a118140d2896d1aff1e3c9355f9deb314',1,'RET_config']]],
