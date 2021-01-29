@@ -41,6 +41,9 @@ import RET_data_processing
 
 #Functions
 def main(list_buttons_area):
+    """! The main function.
+    Launch all the thread and the node listening to ROS information.
+    """    
     try:
         ##create listener of the Button Masher Application
         my_Button_Masher_Application_Output = Button_Masher_Application_Output.Button_Masher_Application_node_listener()
