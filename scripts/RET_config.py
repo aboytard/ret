@@ -33,7 +33,7 @@ stop_thread = False
 
 ## global variable for the socket communication
 socket_host = '10.4.11.117'
-socket_port = 5004
+socket_port = 5007
 
 ## global variable for the data storage
 influxdb_host="localhost"
@@ -44,10 +44,11 @@ influxdb = "RET_Test"
 
 
 ## global variable to test
-robot_settle_time = 0.01
-acceleration_factor = 1.7
+robot_settle_time = 0.2
+acceleration_factor = 3.49
 velocity_factor = 1.57
 minimal_time_interval_button_area = time.time() ### introduce the time from the experiment 2*(mean(time push/unpushed)+time message socket send/receive))
+driver_used = "native"
 
 class Btn():
     """! The Btn base class.
@@ -101,10 +102,10 @@ class Btn_area(Btn):
 delta_area = [0.06,0.03,0.01]    
 x1 = -0.1
 y1 = -0.45
-z1 = 0.159
+z1 = 0.145
 x2 = 0.05
 y2 = -0.45
-z2 = 0.159
+z2 = 0.145
 Btn1 = Btn("Btn1",x1,y1,z1)
 Btn2 = Btn("Btn2",x2,y2,z2)
 

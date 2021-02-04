@@ -65,11 +65,7 @@ class RET_Parameter(Button_Masher_Application_Output.Button_Masher_Application_n
         self.list_msg_Btn_Pressed = []
         self.time_Btn_Pressed = datetime.datetime.utcnow()
         self.list_to_log = []
-        #### Parameter concerning the influxdb writing
-        ## static parameter
-        self.influxdb_host = RET_config.influxdb_host
-        self.influxdb_port = RET_config.influxdb_port
-        self.influxdb = RET_config.influxdb
+
         ## information about the measurement
         self.button_names= ""
         self.list_bouncetime = []
@@ -81,14 +77,17 @@ class RET_Parameter(Button_Masher_Application_Output.Button_Masher_Application_n
             list_button_positions.append(button_area.y)
             list_button_positions.append(button_area.z)
             self.list_buttons_positions.append(list_button_positions)
-        self.influxdb_measurement = ( "RET_Test_v1" + self.button_names + str(self.list_buttons_positions) + "["+ str(self.list_buttons_area[0].dx) + ";" + str(self.list_buttons_area[0].dy) + ";"  + 
-        str(self.list_buttons_area[0].dz) + "]_acceleration_factor_[" + str(self.acceleration_factor) +"]_velocity_factor_["+ str(self.velocity_factor) + "]_robot_settle_time_"+
-        str(self.robot_settle_time) + "]_ROS")
+        #### Parameter concerning the influxdb writing
+        ## static parameter
+        self.influxdb_host = RET_config.influxdb_host
+        self.influxdb_port = RET_config.influxdb_port
+        self.influxdb = RET_config.influxdb + self.button_names + str(self.list_buttons_positions) +"Button_areas_["+ str(self.list_buttons_area[0].dx) + ";" + str(self.list_buttons_area[0].dy) + ";"  + str(self.list_buttons_area[0].dz) + "]"
+        self.influxdb_measurement = "RET_Test_acceleration_factor_[" + str(self.acceleration_factor) +"]_velocity_factor_["+ str(self.velocity_factor) + "]_robot_settle_time_" + str(self.robot_settle_time) + "]" + RET_config.driver_used
         print ("The database in influx db is named: ", self.influxdb)
         print("Data are logged in the next measurements:",self.influxdb_measurement)
         ##### parameter for writing csv_file
         self.csv_name_file = (self.button_names + str(self.list_buttons_positions) + "["+ str(self.list_buttons_area[0].dx) + ";" + str(self.list_buttons_area[0].dy) + ";"  + 
-        str(self.list_buttons_area[0].dz) + "]_bouncetime_" + str(self.list_bouncetime) +"_acceleration_factor_[" + str(self.acceleration_factor) +"]_velocity_factor_["+ str(self.velocity_factor) + "]_robot_settle_time_"+
+        str(self.list_buttons_area[0].dz) + "]_bouncetime_" + str(self.list_bouncetime) +"_acceleration_factor_[" + str(self.acceleration_factor) +"]_velocity_factor_["+ str(self.velocity_factor) + "]_robot_settle_time_["+
         str(self.robot_settle_time) + "]_ROS_v1.csv")
         self.csv_header =  ['datetime.utcnow','Btn_name','Action','In_Time_Interval','end_effecto_entering','end_effectorreceived_socket','end_effector_leaving']
         self.open_csv_file()

@@ -98,7 +98,7 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
                         button_area.send_message_leaving_area = True
                         self.parameter.time_inside_button_area = self.time_button_leaving_area - self.time_button_entering_area
                         self.process_time_Btn_pressed()
-                        self.parameter.BtnMasherApplication_output.print_end_effector_position_information()
+#                        self.parameter.BtnMasherApplication_output.print_end_effector_position_information()
 
 
     
