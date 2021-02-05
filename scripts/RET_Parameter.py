@@ -87,8 +87,8 @@ class RET_Parameter(Button_Masher_Application_Output.Button_Masher_Application_n
         print("Data are logged in the next measurements:",self.influxdb_measurement)
         ##### parameter for writing csv_file
         self.csv_name_file = (self.button_names + str(self.list_buttons_positions) + "["+ str(self.list_buttons_area[0].dx) + ";" + str(self.list_buttons_area[0].dy) + ";"  + 
-        str(self.list_buttons_area[0].dz) + "]_bouncetime_" + str(self.list_bouncetime) +"_acceleration_factor_[" + str(self.acceleration_factor) +"]_velocity_factor_["+ str(self.velocity_factor) + "]_robot_settle_time_["+
-        str(self.robot_settle_time) + "]_ROS_v1.csv")
+        str(self.list_buttons_area[0].dz)+"_acceleration_factor_[" + str(self.acceleration_factor) +"]_velocity_factor_["+ str(self.velocity_factor) + "]_robot_settle_time_["+
+        str(self.robot_settle_time) + "]_"+RET_config.driver_used+".csv")
         self.csv_header =  ['datetime.utcnow','Btn_name','Action','In_Time_Interval','end_effecto_entering','end_effectorreceived_socket','end_effector_leaving']
         self.open_csv_file()
         
