@@ -72,7 +72,7 @@ Step 4) Run the Button Masher Application node:
 
 
 ## Visualize the data
-#In InfluxDB:
+# In InfluxDB:
 Step 1) Start InfluxDB  
 `sudo service influxdb start`
 Step 2) Visualize the data  
@@ -80,7 +80,7 @@ Step 2) Visualize the data
 `use <databases name>` (you may have to add those "" if you get into a parse error)  
 `show measurement`  
 `select <field keys> from <measurement name>`  
-#In csv:  
+# In csv:  
 `cd /workspaces/ret/src/ret/scripts/RET_csv_logfile`  
 
 
