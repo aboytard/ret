@@ -28,12 +28,12 @@ Manually add the ready position to :
 Ensure the first arg is defaulted to false like so - <arg name="iso10218_support" default="false" /> in robot.launch  
 
 Step 2) Get the pilz_manipulation package in your repository  
-`git clone https://github.com/aboytard/pilz_manipulation.git`  
+`$ git clone https://github.com/aboytard/pilz_manipulation.git`  
 
 You should check if these commands have been made:  
-`sudo apt install ros-melodic-pilz-robots`  
-`sudo apt update`  
-`sudo apt install ros-melodic-pilz-industrial-motion`  
+`$ sudo apt install ros-melodic-pilz-robots`  
+`$ sudo apt update`  
+`$ sudo apt install ros-melodic-pilz-industrial-motion`  
 
 
 step 3) Get the ret package
@@ -42,10 +42,10 @@ step 3) Get the ret package
 You should install InfluxDB on your machine. You can follow these command:  
 `$ wget https://dl.influxdata.com/influxdb/releases/influxdb-1.8.4_linux_amd64.tar.gz`  
 `$ tar xvfz influxdb-1.8.4_linux_amd64.tar.gz`  
-`wget -qO- https://repos.influxdata.com/influxdb.key | sudo apt-key add -`  
-`source /etc/lsb-release`  
-`echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list`  
-`sudo apt-get update && sudo apt-get install influxdb`  
+`$ wget -qO- https://repos.influxdata.com/influxdb.key | sudo apt-key add -`  
+`$ source /etc/lsb-release`  
+`$ echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list`  
+`$ sudo apt-get update && sudo apt-get install influxdb`  
 
 Step 4) Get the Raspeberri Pi set up  
 To have your Raspberry Pi set up, you should follow the instructions in:  
