@@ -2,3 +2,4 @@ debug.log
 devel
 build
 doxygen_doc/
+scripts/RET_csv_logfile/
