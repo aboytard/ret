@@ -97,11 +97,11 @@ class RET_Parameter(Button_Masher_Application_Output.Button_Masher_Application_n
         @return  a csv file where we can log the data for a RET.
         """
         try:
-            with open('/home/ret/workspaces/ret/src/ret/scripts/RET_csv_logfile/'+self.csv_name_file,"aw") as f:
+            with open('./RET_csv_logfile/'+self.csv_name_file,"aw") as f:
                 cr = csv.writer(f,delimiter=";",lineterminator="\n")
                 cr.writerow(self.csv_header)                
         except:
-            with open('/home/ret/workspaces/ret/src/ret/scripts/RET_csv_logfile/'+self.csv_name_file,"w") as f:
+            with open('./RET_csv_logfile/'+self.csv_name_file,"w") as f:
                 cr = csv.writer(f,delimiter=";",lineterminator="\n")
                 cr.writerow(self.csv_header)
   
