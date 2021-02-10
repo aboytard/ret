@@ -51,7 +51,7 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
         self.inside_one_button_area = False
         self.process_data = False
         ## argument for Influxdb
-        self.client = InfluxDBClient(host=self.parameter.influxdb_host,port=self.parameter.influxdb_port)
+        self.client = InfluxDBClient(host=self.parameter.influxdb_host,port=self.parameter.influxdb_port,username='ret', password='asdf', database='demo')
         self.time_button_entering_area = time.time()
         self.time_button_leaving_area = time.time()
         pass
@@ -108,10 +108,13 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
         button is entering and leaving the button area or not.
         """
         ## process the time of the button is pressed with the time the button enter and leave the button area
+        t1 = datetime.datetime.strptime(str(self.parameter.time_Btn_pressed), '%Y-%m-%d %H:%M:%S.%f')
+        t2 = datetime.datetime.strptime(str(self.parameter.time_Btn_unpressed), '%Y-%m-%d %H:%M:%S.%f')
+        self.parameter.time_to_compare = t1 + (t2-t1)/2
         for button_area in self.parameter.list_buttons_area :
                 if button_area.name == self.parameter.working_on_button:
-                    if ((self.parameter.time_Btn_Pressed - button_area.time_end_effector_entering_area >= datetime.timedelta(0, 0, 0)) and 
-                        (self.parameter.time_Btn_Pressed - button_area.time_end_effector_leaving_area <= datetime.timedelta(0, 0, 0)) ): 
+                    if ((self.parameter.time_to_compare - button_area.time_end_effector_entering_area >= datetime.timedelta(0, 0, 0)) and 
+                        (self.parameter.time_to_compare - button_area.time_end_effector_leaving_area <= datetime.timedelta(0, 0, 0)) ): 
                         self.parameter.list_to_log = self.parameter.list_msg_Btn_Pressed
                         self.parameter.list_to_log.append(True)
                         self.parameter.list_to_log.append(self.parameter.end_effector_position_entering_button_area)
@@ -119,7 +122,7 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
                         self.parameter.list_to_log.append(self.parameter.end_effector_position_leaving_button_area)
                     else:
                         print ("time entering =", button_area.time_end_effector_entering_area)
-                        print("time pressed = ", self.parameter.time_Btn_Pressed)
+                        print("time middle pressed = ", self.parameter.time_to_compare)
                         print ("time leaving =", button_area.time_end_effector_leaving_area)
                         print("we are stopping the simulation because of an error of time detected")
                         if RET_config.real_time_processing:
@@ -175,7 +178,7 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
         """! Retrieves the csv logfile.
         @return  Write the RET data in the Influxdb.
         """
-        with open('/home/ret/workspaces/ret/src/ret/scripts/RET_csv_logfile/'+self.parameter.csv_name_file,"aw") as f:
+        with open(self.parameter.csv_name_file,"aw") as f:
             cr = csv.writer(f,delimiter=",",lineterminator="\n")
             cr.writerow(self.parameter.list_to_log)
     

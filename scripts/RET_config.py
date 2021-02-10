@@ -33,7 +33,7 @@ stop_thread = False
 
 ## global variable for the socket communication
 socket_host = '10.4.11.117'
-socket_port = 5007
+socket_port = 5000
 
 ## global variable for the data storage
 influxdb_host="localhost"

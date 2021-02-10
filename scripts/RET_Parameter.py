@@ -50,6 +50,7 @@ class RET_Parameter(Button_Masher_Application_Output.Button_Masher_Application_n
         self.BtnMasherApplication_output = ButtonMasherApplication_output
         self.end_effector_position_entering_button_area = []
         self.end_effector_position_received_socket_message_pressed = []
+        self.end_effector_position_received_socket_message_unpressed = []
         self.end_effector_position_leaving_button_area = []
         ##changing parameter
         self.working_on_button = ""
@@ -63,8 +64,10 @@ class RET_Parameter(Button_Masher_Application_Output.Button_Masher_Application_n
         self.socket_port = RET_config.socket_port
         ##changing parameter
         self.list_msg_Btn_Pressed = []
-        self.time_Btn_Pressed = datetime.datetime.utcnow()
+        self.time_Btn_pressed = datetime.datetime.utcnow()
+        self.time_Btn_unpressed = datetime.datetime.utcnow()
         self.list_to_log = []
+        self.time_to_compare = datetime.datetime.utcnow()
 
         ## information about the measurement
         self.button_names= ""
@@ -86,10 +89,10 @@ class RET_Parameter(Button_Masher_Application_Output.Button_Masher_Application_n
         print ("The database in influx db is named: ", self.influxdb)
         print("Data are logged in the next measurements:",self.influxdb_measurement)
         ##### parameter for writing csv_file
-        self.csv_name_file = (self.button_names + str(self.list_buttons_positions) + "["+ str(self.list_buttons_area[0].dx) + ";" + str(self.list_buttons_area[0].dy) + ";"  + 
+        self.csv_name_file = '/home/ret/workspaces/ret/src/ret/scripts/RET_csv_logfile/' + (self.button_names + str(self.list_buttons_positions) + "["+ str(self.list_buttons_area[0].dx) + ";" + str(self.list_buttons_area[0].dy) + ";"  + 
         str(self.list_buttons_area[0].dz)+"_acceleration_factor_[" + str(self.acceleration_factor) +"]_velocity_factor_["+ str(self.velocity_factor) + "]_robot_settle_time_["+
         str(self.robot_settle_time) + "]_"+RET_config.driver_used+".csv")
-        self.csv_header =  ['datetime.utcnow','Btn_name','Action','In_Time_Interval','end_effecto_entering','end_effectorreceived_socket','end_effector_leaving']
+        self.csv_header =  ['datetime.utcnow','Btn_name','Action','In_Time_Interval','end_effector_entering','end_effector_received_socket','end_effector_leaving']
         self.open_csv_file()
         
     def open_csv_file(self):
@@ -97,11 +100,11 @@ class RET_Parameter(Button_Masher_Application_Output.Button_Masher_Application_n
         @return  a csv file where we can log the data for a RET.
         """
         try:
-            with open('./RET_csv_logfile/'+self.csv_name_file,"aw") as f:
+            with open(self.csv_name_file,"aw") as f:
                 cr = csv.writer(f,delimiter=";",lineterminator="\n")
                 cr.writerow(self.csv_header)                
         except:
-            with open('./RET_csv_logfile/'+self.csv_name_file,"w") as f:
+            with open(self.csv_name_file,"w") as f:
                 cr = csv.writer(f,delimiter=";",lineterminator="\n")
                 cr.writerow(self.csv_header)
   

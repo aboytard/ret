@@ -59,11 +59,14 @@ class Computer_ReceiveMessage_Rpi(threading.Thread,RET_Parameter.RET_Parameter):
                 self.parameter.list_msg_Btn_Pressed = received_message.split(";")
                 time_to_process = self.parameter.list_msg_Btn_Pressed[0]
                 if self.parameter.list_msg_Btn_Pressed[2] == "pressed":
-                    self.parameter.time_Btn_Pressed = datetime.datetime.strptime(time_to_process, '%Y-%m-%d %H:%M:%S.%f')
-                    self.parameter.end_effector_position_received_socket_message_pressed = [self.parameter.time_Btn_Pressed,self.parameter.BtnMasherApplication_output.x,self.parameter.BtnMasherApplication_output.y,self.parameter.BtnMasherApplication_output.z]
+                    self.parameter.time_Btn_pressed = datetime.datetime.strptime(time_to_process, '%Y-%m-%d %H:%M:%S.%f')
+                    self.parameter.end_effector_position_received_socket_message_pressed = [self.parameter.time_Btn_pressed,self.parameter.BtnMasherApplication_output.x,self.parameter.BtnMasherApplication_output.y,self.parameter.BtnMasherApplication_output.z]
 #                        print (self.parameter.time_Btn_Pressed)
 #                        print(self.list_msg_Btn_Pressed)
 #                        print(self.parameter.BtnMasherApplication_output.x)
+                if self.parameter.list_msg_Btn_Pressed[2] == "unpressed":
+                    self.parameter.time_Btn_unpressed = datetime.datetime.strptime(time_to_process, '%Y-%m-%d %H:%M:%S.%f')
+                    self.parameter.end_effector_position_received_socket_message_unpressed = [self.parameter.time_Btn_unpressed,self.parameter.BtnMasherApplication_output.x,self.parameter.BtnMasherApplication_output.y,self.parameter.BtnMasherApplication_output.z]
             except:
                 pass
         self.connection.close()
