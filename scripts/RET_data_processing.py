@@ -54,7 +54,11 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
         self.client = InfluxDBClient(host=self.parameter.influxdb_host,port=self.parameter.influxdb_port,username='ret', password='asdf', database='demo')
         self.time_button_entering_area = time.time()
         self.time_button_leaving_area = time.time()
+        self.datetime_button_entering_area = datetime.datetime.utcnow()
+        self.datetime_button_leaving_area = datetime.datetime.utcnow()
         pass
+
+
     
     def end_effector_inside_Btn_area(self):
         """! Retrieves the end effector cartesian position description.
@@ -76,6 +80,7 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
                             button_area.send_message_entering_area = True
                             print ("we have enter the area of : ", button_area.name)
                             self.parameter.BtnMasherApplication_output.print_end_effector_position_information()
+                            self.datetime_button_entering_area = button_area.time_end_effector_entering_area 
 
 
     def end_effector_outside_Btn_area(self):
@@ -94,6 +99,7 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
                         print ("we have left the area of : ", button_area.name)
                         self.inside_one_button_area = False
                         button_area.time_end_effector_leaving_area = datetime.datetime.utcnow()
+                        self.datetime_button_leaving_area = button_area.time_end_effector_leaving_area
                         self.parameter.end_effector_position_leaving_button_area = [str(button_area.time_end_effector_leaving_area),self.parameter.BtnMasherApplication_output.x,self.parameter.BtnMasherApplication_output.y,self.parameter.BtnMasherApplication_output.z]
                         button_area.send_message_leaving_area = True
                         self.parameter.time_inside_button_area = self.time_button_leaving_area - self.time_button_entering_area
@@ -115,27 +121,25 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
                 if button_area.name == self.parameter.working_on_button:
                     if ((self.parameter.time_to_compare - button_area.time_end_effector_entering_area >= datetime.timedelta(0, 0, 0)) and 
                         (self.parameter.time_to_compare - button_area.time_end_effector_leaving_area <= datetime.timedelta(0, 0, 0)) ): 
-                        self.parameter.list_to_log = self.parameter.list_msg_Btn_Pressed
-                        self.parameter.list_to_log.append(True)
-                        self.parameter.list_to_log.append(self.parameter.end_effector_position_entering_button_area)
-                        self.parameter.list_to_log.append(self.parameter.end_effector_position_received_socket_message_pressed)
-                        self.parameter.list_to_log.append(self.parameter.end_effector_position_leaving_button_area)
+                        success = True
+                        self.parameter.list_to_log_RET = self.parameter.list_msg_change_state
+                        self.parameter.list_to_log_csv.append(self.parameter.end_effector_position_entering_button_area)
+                        self.parameter.list_to_log_csv.append(self.parameter.end_effector_position_received_socket_message_pressed)
+                        self.parameter.list_to_log_csv.append(self.parameter.end_effector_position_leaving_button_area)
+                        
                     else:
+                        success = False
                         print ("time entering =", button_area.time_end_effector_entering_area)
                         print("time middle pressed = ", self.parameter.time_to_compare)
                         print ("time leaving =", button_area.time_end_effector_leaving_area)
                         print("we are stopping the simulation because of an error of time detected")
                         if RET_config.real_time_processing:
                             RET_config.stop_thread = True
-                        self.parameter.list_to_log = self.parameter.list_msg_Btn_Pressed
-                        self.parameter.list_to_log.append(False)
-                        self.parameter.list_to_log.append(self.parameter.end_effector_position_entering_button_area)
-                        self.parameter.list_to_log.append(self.parameter.end_effector_position_received_socket_message_pressed)
-                        self.parameter.list_to_log.append(self.parameter.end_effector_position_leaving_button_area)
+
         self.write_into_influxdb(self.client)
-        self.write_json_influxdb_RET(self.client)
-        self.write_into_csv_db()
-    
+        self.write_json_influxdb_RET(self.client,success)
+        self.write_into_csv_db(success)
+
     def write_into_influxdb(self,client):
         """! Retrieves the time the button where pressed detected by the Raspberri Pi.
         @parameter client The influxdb databases we want to log the data in.
@@ -143,27 +147,64 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
         """
         client.create_database(self.parameter.influxdb) 
         client.switch_database(self.parameter.influxdb)
-
-    def write_json_influxdb_RET(self,client): 
-        json_body = [
+        
+    def write_json_influxdb_RET(self,client,success): 
+        if success == False :
+            request_name = "All_information"
+        else :
+            request_name = "Error_Information"
+            ## write as a success
+        json_body_RET = [
             {
-                "measurement": self.parameter.influxdb_measurement,
+                "measurement": "RET_info",
                 "tags": {
-                    "requestName": "All_Information",
+                    "requestName": "RET_Information",
                     "requestType": "GET"
                 },
-                "time":self.parameter.list_to_log[0],#datetime.datetime.utcnow(),
+                "time": datetime.datetime.utcnow(),
                  "fields": {
-                    "Btn_name": self.parameter.list_to_log[1], 
-                    "Action": self.parameter.list_to_log[2],
-                    "In_Time_Interval": self.parameter.list_to_log[3], 
-                    "end_effector_position_entering_button_area": str(self.parameter.list_to_log[4]),
-                    "end_effector_position_received_socket_message_pressed": str(self.parameter.list_to_log[5]),
-                    "end_effector_position_leaving_button_area": str(self.parameter.list_to_log[6])
+                     "Btn_name" : self.parameter.list_to_log_RET[1],
+                    "time_end_effector_entering": str(self.datetime_button_entering_area),
+                    "time_button_pressed": str(self.parameter.time_Btn_pressed),
+                    "time_compared": str(self.parameter.time_to_compare),
+                    "time_button_unpressed": str(self.parameter.time_Btn_unpressed),
+                   "time_end_effector_leaving": str(self.datetime_button_leaving_area)
                             }
             }
         ]
-        client.write_points(json_body)
+        json_body_entering_button_area = [
+            {
+                "measurement": "enter_button_area" ,
+                "tags": {
+                    "requestName": "enter_area_measurement",
+                    "requestType": "GET"
+                },
+                "time": self.parameter.end_effector_position_entering_button_area[0],#datetime.datetime.utcnow(),
+                 "fields": {
+                    "x":  self.parameter.end_effector_position_entering_button_area[1], 
+                    "y": self.parameter.end_effector_position_entering_button_area[2],
+                    "z": self.parameter.end_effector_position_entering_button_area[3]
+                            }
+            }
+        ]    
+        json_body_leaving_button_area = [
+            {
+                "measurement": "leave_button_area",
+                "tags": {
+                    "requestName": "leave_area_measurement",
+                    "requestType": "GET"
+                },
+                "time":self.parameter.end_effector_position_leaving_button_area[0],#datetime.datetime.utcnow(),
+                 "fields": {
+                    "x": self.parameter.end_effector_position_leaving_button_area[1], 
+                    "y": self.parameter.end_effector_position_leaving_button_area[2],
+                    "z": self.parameter.end_effector_position_leaving_button_area[3]
+                            }
+            }
+        ]         
+        client.write_points(json_body_RET)
+        client.write_points(json_body_entering_button_area)
+        client.write_points(json_body_leaving_button_area)
         print("writing in Influxdb is made")
     
     def write_json_influxdb_additional_information(self,client):
@@ -174,13 +215,15 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
         ## add the other node for Ragesh
         pass
     
-    def write_into_csv_db(self):
+    def write_into_csv_db(self,success):
         """! Retrieves the csv logfile.
         @return  Write the RET data in the Influxdb.
-        """
+        """      
+        list_to_log = [datetime.datetime.utcnow(),self.parameter.list_to_log_RET[1],str(self.parameter.time_Btn_pressed),str(self.parameter.time_Btn_pressed),str(self.parameter.time_Btn_unpressed),str(self.datetime_button_leaving_area)]
         with open(self.parameter.csv_name_file,"aw") as f:
             cr = csv.writer(f,delimiter=",",lineterminator="\n")
-            cr.writerow(self.parameter.list_to_log)
+            list_to_log.append(success)
+            cr.writerow(list_to_log)
     
     def run(self):
         """! Retrieves RET_data_processing class.

@@ -8,3 +8,21 @@ datetime.utcnow;Btn_name;Action;In_Time_Interval;end_effector_entering;end_effec
 2021-02-10 15:44:22.532710,Btn2,unpressed,True,"['2021-02-10 15:44:21.802422', 0.09994928551424018, -0.45024703746588657, 0.15176361882196787]","[datetime.datetime(2021, 2, 10, 15, 44, 21, 935801), 0.09989427822996762, -0.45011064046711435, 0.14692647147104543]","['2021-02-10 15:44:22.806791', 0.09982041002530234, -0.4497777999326474, 0.160345787086837]"
 2021-02-10 15:44:26.007825,Btn1,unpressed,True,"['2021-02-10 15:44:25.302361', -0.05002546785736088, -0.450242939154397, 0.14896171151902712]","[datetime.datetime(2021, 2, 10, 15, 44, 25, 370346), -0.05002546785736088, -0.450242939154397, 0.14896171151902712]","['2021-02-10 15:44:26.202617', -0.04992375476343123, -0.44989984212591105, 0.15574718405537635]"
 2021-02-10 15:44:29.455936,Btn2,unpressed,True,"['2021-02-10 15:44:28.702347', 0.09996310010257922, -0.45027212245807074, 0.15293719641894585]","[datetime.datetime(2021, 2, 10, 15, 44, 28, 864517), 0.09990213412742686, -0.45010889691449957, 0.1469264714710455]","['2021-02-10 15:44:29.718362', 0.09982217968089939, -0.4497857737708714, 0.16033304700607076]"
+datetime.utcnow;Btn_name;Action;In_Time_Interval;end_effector_entering;end_effector_received_socket;end_effector_leaving
+datetime.utcnow;Btn_name;Action;In_Time_Interval;end_effector_entering;end_effector_received_socket;end_effector_leaving
+datetime.utcnow;Btn_name;Action;In_Time_Interval;end_effector_entering;end_effector_received_socket;end_effector_leaving
+datetime.utcnow;Btn_name;Action;In_Time_Interval;end_effector_entering;end_effector_received_socket;end_effector_leaving
+datetime.utcnow;Btn_name;Action;In_Time_Interval;end_effector_entering;end_effector_received_socket;end_effector_leaving
+datetime.utcnow;Btn_name;Action;In_Time_Interval;end_effector_entering;end_effector_received_socket;end_effector_leaving
+datetime.utcnow;Btn_name;Action;In_Time_Interval;end_effector_entering;end_effector_received_socket;end_effector_leaving
+datetime.utcnow;Btn_name;Action;In_Time_Interval;end_effector_entering;end_effector_received_socket;end_effector_leaving
+datetime.utcnow;Btn_name;Action;In_Time_Interval;end_effector_entering;end_effector_received_socket;end_effector_leaving
+datetime.utcnow;Btn_name;Action;In_Time_Interval;end_effector_entering;end_effector_received_socket;end_effector_leaving
+datetime.utcnow;Btn_name;Action;In_Time_Interval;end_effector_entering;end_effector_received_socket;end_effector_leaving
+datetime.utcnow;Btn_name;Action;In_Time_Interval;end_effector_entering;end_effector_received_socket;end_effector_leaving
+datetime.utcnow;Btn_name;Action;In_Time_Interval;end_effector_entering;end_effector_received_socket;end_effector_leaving
+datetime.utcnow;Btn_name;time_end_effector_entering;time_button_pressed;time_compared;time_button_unpressed;time_end_effector_leaving;success
+datetime.utcnow;Btn_name;time_end_effector_entering;time_button_pressed;time_compared;time_button_unpressed;time_end_effector_leaving;success
+2021-02-10 17:31:38.778042,Btn2,2021-02-10 17:31:37.881277,2021-02-10 17:31:37.881277,2021-02-10 17:31:38.514815,2021-02-10 17:31:38.743238,True
+2021-02-10 17:31:42.160583,Btn1,2021-02-10 17:31:41.343851,2021-02-10 17:31:41.343851,2021-02-10 17:31:41.932980,2021-02-10 17:31:42.141672,True
+2021-02-10 17:31:45.673229,Btn2,2021-02-10 17:31:44.772511,2021-02-10 17:31:44.772511,2021-02-10 17:31:45.400713,2021-02-10 17:31:45.640686,True

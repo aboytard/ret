@@ -63,10 +63,11 @@ class RET_Parameter(Button_Masher_Application_Output.Button_Masher_Application_n
         self.socket_host = RET_config.socket_host
         self.socket_port = RET_config.socket_port
         ##changing parameter
-        self.list_msg_Btn_Pressed = []
+        self.list_msg_change_state = []
         self.time_Btn_pressed = datetime.datetime.utcnow()
         self.time_Btn_unpressed = datetime.datetime.utcnow()
-        self.list_to_log = []
+        self.list_to_log_RET = []
+        self.list_to_log_csv = []
         self.time_to_compare = datetime.datetime.utcnow()
 
         ## information about the measurement
@@ -85,14 +86,12 @@ class RET_Parameter(Button_Masher_Application_Output.Button_Masher_Application_n
         self.influxdb_host = RET_config.influxdb_host
         self.influxdb_port = RET_config.influxdb_port
         self.influxdb = RET_config.influxdb + self.button_names + str(self.list_buttons_positions) +"Button_areas_["+ str(self.list_buttons_area[0].dx) + ";" + str(self.list_buttons_area[0].dy) + ";"  + str(self.list_buttons_area[0].dz) + "]"
-        self.influxdb_measurement = "RET_Test_acceleration_factor_[" + str(self.acceleration_factor) +"]_velocity_factor_["+ str(self.velocity_factor) + "]_robot_settle_time_" + str(self.robot_settle_time) + "]" + RET_config.driver_used
         print ("The database in influx db is named: ", self.influxdb)
-        print("Data are logged in the next measurements:",self.influxdb_measurement)
         ##### parameter for writing csv_file
         self.csv_name_file = '/home/ret/workspaces/ret/src/ret/scripts/RET_csv_logfile/' + (self.button_names + str(self.list_buttons_positions) + "["+ str(self.list_buttons_area[0].dx) + ";" + str(self.list_buttons_area[0].dy) + ";"  + 
         str(self.list_buttons_area[0].dz)+"_acceleration_factor_[" + str(self.acceleration_factor) +"]_velocity_factor_["+ str(self.velocity_factor) + "]_robot_settle_time_["+
         str(self.robot_settle_time) + "]_"+RET_config.driver_used+".csv")
-        self.csv_header =  ['datetime.utcnow','Btn_name','Action','In_Time_Interval','end_effector_entering','end_effector_received_socket','end_effector_leaving']
+        self.csv_header =  ['datetime.utcnow','Btn_name',"time_end_effector_entering","time_button_pressed","time_compared","time_button_unpressed","time_end_effector_leaving","success"]
         self.open_csv_file()
         
     def open_csv_file(self):
