@@ -51,7 +51,7 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
         self.inside_one_button_area = False
         self.process_data = False
         ## argument for Influxdb
-        self.client = InfluxDBClient(host=self.parameter.influxdb_host,port=self.parameter.influxdb_port,username='ret', password='asdf', database='demo')
+        self.client = InfluxDBClient(host=self.parameter.influxdb_host,port=self.parameter.influxdb_port,username='ret', password='asdf', database=self.parameter.influxdb)
         self.time_button_entering_area = time.time()
         self.time_button_leaving_area = time.time()
         self.datetime_button_entering_area = datetime.datetime.utcnow()
@@ -149,21 +149,19 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
         client.switch_database(self.parameter.influxdb)
         
     def write_json_influxdb_RET(self,client,success): 
+        if success == True :
+            request_type = "All"
         if success == False :
-            request_name = "All_information"
-        else :
-            request_name = "Error_Information"
-            ## write as a success
+            request_type = "Error"
         json_body_RET = [
             {
-                "measurement": "RET_info",
+                "measurement": self.parameter.influxdb_measurement_RET_info,
                 "tags": {
-                    "requestName": "RET_Information",
-                    "requestType": "GET"
+                    "requestName": self.parameter.list_to_log_RET[1],
+                    "requestType": request_type
                 },
                 "time": datetime.datetime.utcnow(),
                  "fields": {
-                     "Btn_name" : self.parameter.list_to_log_RET[1],
                     "time_end_effector_entering": str(self.datetime_button_entering_area),
                     "time_button_pressed": str(self.parameter.time_Btn_pressed),
                     "time_compared": str(self.parameter.time_to_compare),
@@ -172,9 +170,80 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
                             }
             }
         ]
+    
+        json_body_RET_entering_time = [
+            {
+                "measurement": self.parameter.influxdb_measurement_RET_time_entering,
+                "tags": {
+                    "requestName": self.parameter.list_to_log_RET[1],
+                    "requestType": request_type
+                },
+                "time": self.datetime_button_entering_area,
+                 "fields": {
+                    "time_end_effector_entering": True
+                            }
+            }
+        ]    
+
+        json_body_RET_pressing_time = [
+            {
+                "measurement": self.parameter.influxdb_measurement_RET_time_pressing,
+                "tags": {
+                    "requestName": self.parameter.list_to_log_RET[1],
+                    "requestType": request_type
+                },
+                "time": self.parameter.time_Btn_pressed,
+                 "fields": {
+                    "time_pressing": True
+                            }
+            }
+        ]      
+
+        json_body_RET_comparing_time = [
+            {
+                "measurement": self.parameter.influxdb_measurement_RET_time_compared,
+                "tags": {
+                    "requestName": self.parameter.list_to_log_RET[1],
+                    "requestType": request_type
+                },
+                "time": self.parameter.time_to_compare,
+                 "fields": {
+                    "time_comparing": True
+                            }
+            }
+        ]      
+
+
+        json_body_RET_unpressing_time = [
+            {
+                "measurement": self.parameter.influxdb_measurement_RET_time_unpressing,
+                "tags": {
+                    "requestName": self.parameter.list_to_log_RET[1],
+                    "requestType": request_type
+                },
+                "time": self.parameter.time_Btn_unpressed,
+                 "fields": {
+                    "time_unpressing": True
+                            }
+            }
+        ]        
+        json_body_RET_leaving_time = [
+            {
+                "measurement": self.parameter.influxdb_measurement_RET_time_leaving,
+                "tags": {
+                    "requestName": self.parameter.list_to_log_RET[1],
+                    "requestType": request_type
+                },
+                "time": self.datetime_button_leaving_area,
+                 "fields": {
+                    "time_end_effector_leaving": True
+                            }
+            }
+        ]      
+    
         json_body_entering_button_area = [
             {
-                "measurement": "enter_button_area" ,
+                "measurement": self.parameter.influxdb_measurement_RET_enter_button_area ,
                 "tags": {
                     "requestName": "enter_area_measurement",
                     "requestType": "GET"
@@ -189,7 +258,7 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
         ]    
         json_body_leaving_button_area = [
             {
-                "measurement": "leave_button_area",
+                "measurement": self.parameter.influxdb_measurement_RET_leave_button_area,
                 "tags": {
                     "requestName": "leave_area_measurement",
                     "requestType": "GET"
@@ -203,6 +272,11 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
             }
         ]         
         client.write_points(json_body_RET)
+        client.write_points(json_body_RET_entering_time)
+        client.write_points(json_body_RET_pressing_time)
+        client.write_points(json_body_RET_comparing_time)
+        client.write_points(json_body_RET_unpressing_time)
+        client.write_points(json_body_RET_leaving_time)
         client.write_points(json_body_entering_button_area)
         client.write_points(json_body_leaving_button_area)
         print("writing in Influxdb is made")

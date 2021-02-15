@@ -85,7 +85,16 @@ class RET_Parameter(Button_Masher_Application_Output.Button_Masher_Application_n
         ## static parameter
         self.influxdb_host = RET_config.influxdb_host
         self.influxdb_port = RET_config.influxdb_port
-        self.influxdb = RET_config.influxdb + self.button_names + str(self.list_buttons_positions) +"Button_areas_["+ str(self.list_buttons_area[0].dx) + ";" + str(self.list_buttons_area[0].dy) + ";"  + str(self.list_buttons_area[0].dz) + "]"
+        self.influxdb = RET_config.influxdb
+        self.influxdb_measurement_RET_info = "All_Time"+self.button_names + str(self.list_buttons_positions) +"Button_areas_["+ str(self.list_buttons_area[0].dx) + ";" + str(self.list_buttons_area[0].dy) + ";"  + str(self.list_buttons_area[0].dz) + "]"
+        self.influxdb_measurement_RET_enter_button_area = "Entering_"+ self.button_names + str(self.list_buttons_positions) +"Button_areas_["+ str(self.list_buttons_area[0].dx) + ";" + str(self.list_buttons_area[0].dy) + ";"  + str(self.list_buttons_area[0].dz) + "]"
+        self.influxdb_measurement_RET_leave_button_area = "Leaving_"+ self.button_names + str(self.list_buttons_positions) +"Button_areas_["+ str(self.list_buttons_area[0].dx) + ";" + str(self.list_buttons_area[0].dy) + ";"  + str(self.list_buttons_area[0].dz) + "]"
+        self.influxdb_measurement_RET_time_entering = "Time_entering_"+ self.button_names + str(self.list_buttons_positions) +"Button_areas_["+ str(self.list_buttons_area[0].dx) + ";" + str(self.list_buttons_area[0].dy) + ";"  + str(self.list_buttons_area[0].dz) + "]"
+        self.influxdb_measurement_RET_time_pressing = "Time_pressing_"+ self.button_names + str(self.list_buttons_positions) +"Button_areas_["+ str(self.list_buttons_area[0].dx) + ";" + str(self.list_buttons_area[0].dy) + ";"  + str(self.list_buttons_area[0].dz) + "]"
+        self.influxdb_measurement_RET_time_compared = "Time_compared_"+ self.button_names + str(self.list_buttons_positions) +"Button_areas_["+ str(self.list_buttons_area[0].dx) + ";" + str(self.list_buttons_area[0].dy) + ";"  + str(self.list_buttons_area[0].dz) + "]"
+        self.influxdb_measurement_RET_time_unpressing = "Time_unpressing_"+ self.button_names + str(self.list_buttons_positions) +"Button_areas_["+ str(self.list_buttons_area[0].dx) + ";" + str(self.list_buttons_area[0].dy) + ";"  + str(self.list_buttons_area[0].dz) + "]"        
+        self.influxdb_measurement_RET_time_leaving = "Time_leaving_"+ self.button_names + str(self.list_buttons_positions) +"Button_areas_["+ str(self.list_buttons_area[0].dx) + ";" + str(self.list_buttons_area[0].dy) + ";"  + str(self.list_buttons_area[0].dz) + "]"
+        
         print ("The database in influx db is named: ", self.influxdb)
         ##### parameter for writing csv_file
         self.csv_name_file = '/home/ret/workspaces/ret/src/ret/scripts/RET_csv_logfile/' + (self.button_names + str(self.list_buttons_positions) + "["+ str(self.list_buttons_area[0].dx) + ";" + str(self.list_buttons_area[0].dy) + ";"  + 
