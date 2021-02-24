@@ -38,19 +38,23 @@ def \hyperlink{classRET__data__processing_1_1RET__data__processing_af0d2380cd9fe
 \begin{DoxyCompactList}\small\item\em Retrieves the time the button where pressed detected by the Raspberri Pi. \end{DoxyCompactList}\item 
 def \hyperlink{classRET__data__processing_1_1RET__data__processing_ad22709b2e67308af35f55680d5a026e0}{run} (self)
 \begin{DoxyCompactList}\small\item\em Retrieves \hyperlink{classRET__data__processing_1_1RET__data__processing}{R\+E\+T\+\_\+data\+\_\+processing} class. \end{DoxyCompactList}\item 
-def \hyperlink{classRET__data__processing_1_1RET__data__processing_a53cc9f2963d8567e8f2be4663fbe2d92}{write\+\_\+into\+\_\+csv\+\_\+db} (self)
+def \hyperlink{classRET__data__processing_1_1RET__data__processing_a21a0d75a00e8245a7d8cb7853663e3ea}{write\+\_\+into\+\_\+csv\+\_\+db} (self, success)
 \begin{DoxyCompactList}\small\item\em Retrieves the csv logfile. \end{DoxyCompactList}\item 
 def \hyperlink{classRET__data__processing_1_1RET__data__processing_a8edbf01e68042082bbe5bc8c967f710e}{write\+\_\+into\+\_\+influxdb} (self, \hyperlink{classRET__data__processing_1_1RET__data__processing_ad5bc32b75da65fe60067f501a4bb6665}{client})
 \begin{DoxyCompactList}\small\item\em Retrieves the time the button where pressed detected by the Raspberri Pi. \end{DoxyCompactList}\item 
 def \hyperlink{classRET__data__processing_1_1RET__data__processing_a7ced1bb55d644f56ba40295ffed86c92}{write\+\_\+json\+\_\+influxdb\+\_\+additional\+\_\+information} (self, \hyperlink{classRET__data__processing_1_1RET__data__processing_ad5bc32b75da65fe60067f501a4bb6665}{client})
 \begin{DoxyCompactList}\small\item\em Retrieves additional data. \end{DoxyCompactList}\item 
-def \hyperlink{classRET__data__processing_1_1RET__data__processing_abb33542be6fa47a380328883d58d1c79}{write\+\_\+json\+\_\+influxdb\+\_\+\+R\+ET} (self, \hyperlink{classRET__data__processing_1_1RET__data__processing_ad5bc32b75da65fe60067f501a4bb6665}{client})
+def \hyperlink{classRET__data__processing_1_1RET__data__processing_adf8798aae1ab2f5933be5028e19c4228}{write\+\_\+json\+\_\+influxdb\+\_\+\+R\+ET} (self, \hyperlink{classRET__data__processing_1_1RET__data__processing_ad5bc32b75da65fe60067f501a4bb6665}{client}, success)
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classRET__data__processing_1_1RET__data__processing_ad5bc32b75da65fe60067f501a4bb6665}{client}
 \begin{DoxyCompactList}\small\item\em argument for Influxdb \end{DoxyCompactList}\item 
+\hyperlink{classRET__data__processing_1_1RET__data__processing_a4dcec67fc65e9336d653ec5078448b8b}{datetime\+\_\+button\+\_\+entering\+\_\+area}
+\item 
+\hyperlink{classRET__data__processing_1_1RET__data__processing_afe02352070d91e141b0c45450902eea0}{datetime\+\_\+button\+\_\+leaving\+\_\+area}
+\item 
 \hyperlink{classRET__data__processing_1_1RET__data__processing_af140727efa8da9cde0e592a61407d62f}{inside\+\_\+one\+\_\+button\+\_\+area}
 \begin{DoxyCompactList}\small\item\em settle arguments to deal only with one Btn at the time, we cannot process every button of the list anytime \end{DoxyCompactList}\item 
 \hyperlink{classRET__data__processing_1_1RET__data__processing_acbbf8e6a1d50b851956b602b4b62407d}{len\+\_\+list\+\_\+buttons\+\_\+area}
@@ -146,11 +150,11 @@ Retrieves \hyperlink{classRET__data__processing_1_1RET__data__processing}{R\+E\+
 \begin{DoxyReturn}{Returns}
 Launch the thread that processes the data. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classRET__data__processing_1_1RET__data__processing_a53cc9f2963d8567e8f2be4663fbe2d92}\label{classRET__data__processing_1_1RET__data__processing_a53cc9f2963d8567e8f2be4663fbe2d92}} 
+\mbox{\Hypertarget{classRET__data__processing_1_1RET__data__processing_a21a0d75a00e8245a7d8cb7853663e3ea}\label{classRET__data__processing_1_1RET__data__processing_a21a0d75a00e8245a7d8cb7853663e3ea}} 
 \index{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}!write\+\_\+into\+\_\+csv\+\_\+db@{write\+\_\+into\+\_\+csv\+\_\+db}}
 \index{write\+\_\+into\+\_\+csv\+\_\+db@{write\+\_\+into\+\_\+csv\+\_\+db}!R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}}
 \subsubsection{\texorpdfstring{write\+\_\+into\+\_\+csv\+\_\+db()}{write\_into\_csv\_db()}}
-{\footnotesize\ttfamily def write\+\_\+into\+\_\+csv\+\_\+db (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily def write\+\_\+into\+\_\+csv\+\_\+db (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{success }\end{DoxyParamCaption})}
 
 
 
@@ -185,11 +189,11 @@ Retrieves additional data.
 client The influxdb databases we want to log the data in. \begin{DoxyReturn}{Returns}
 Write the additional data in the Influxdb. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classRET__data__processing_1_1RET__data__processing_abb33542be6fa47a380328883d58d1c79}\label{classRET__data__processing_1_1RET__data__processing_abb33542be6fa47a380328883d58d1c79}} 
+\mbox{\Hypertarget{classRET__data__processing_1_1RET__data__processing_adf8798aae1ab2f5933be5028e19c4228}\label{classRET__data__processing_1_1RET__data__processing_adf8798aae1ab2f5933be5028e19c4228}} 
 \index{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}!write\+\_\+json\+\_\+influxdb\+\_\+\+R\+ET@{write\+\_\+json\+\_\+influxdb\+\_\+\+R\+ET}}
 \index{write\+\_\+json\+\_\+influxdb\+\_\+\+R\+ET@{write\+\_\+json\+\_\+influxdb\+\_\+\+R\+ET}!R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}}
 \subsubsection{\texorpdfstring{write\+\_\+json\+\_\+influxdb\+\_\+\+R\+E\+T()}{write\_json\_influxdb\_RET()}}
-{\footnotesize\ttfamily def write\+\_\+json\+\_\+influxdb\+\_\+\+R\+ET (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{client }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily def write\+\_\+json\+\_\+influxdb\+\_\+\+R\+ET (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{client,  }\item[{}]{success }\end{DoxyParamCaption})}
 
 
 
@@ -203,6 +207,18 @@ Write the additional data in the Influxdb.
 
 
 argument for Influxdb 
+
+\mbox{\Hypertarget{classRET__data__processing_1_1RET__data__processing_a4dcec67fc65e9336d653ec5078448b8b}\label{classRET__data__processing_1_1RET__data__processing_a4dcec67fc65e9336d653ec5078448b8b}} 
+\index{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}!datetime\+\_\+button\+\_\+entering\+\_\+area@{datetime\+\_\+button\+\_\+entering\+\_\+area}}
+\index{datetime\+\_\+button\+\_\+entering\+\_\+area@{datetime\+\_\+button\+\_\+entering\+\_\+area}!R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}}
+\subsubsection{\texorpdfstring{datetime\+\_\+button\+\_\+entering\+\_\+area}{datetime\_button\_entering\_area}}
+{\footnotesize\ttfamily datetime\+\_\+button\+\_\+entering\+\_\+area}
+
+\mbox{\Hypertarget{classRET__data__processing_1_1RET__data__processing_afe02352070d91e141b0c45450902eea0}\label{classRET__data__processing_1_1RET__data__processing_afe02352070d91e141b0c45450902eea0}} 
+\index{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}!datetime\+\_\+button\+\_\+leaving\+\_\+area@{datetime\+\_\+button\+\_\+leaving\+\_\+area}}
+\index{datetime\+\_\+button\+\_\+leaving\+\_\+area@{datetime\+\_\+button\+\_\+leaving\+\_\+area}!R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}}
+\subsubsection{\texorpdfstring{datetime\+\_\+button\+\_\+leaving\+\_\+area}{datetime\_button\_leaving\_area}}
+{\footnotesize\ttfamily datetime\+\_\+button\+\_\+leaving\+\_\+area}
 
 \mbox{\Hypertarget{classRET__data__processing_1_1RET__data__processing_af140727efa8da9cde0e592a61407d62f}\label{classRET__data__processing_1_1RET__data__processing_af140727efa8da9cde0e592a61407d62f}} 
 \index{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing@{R\+E\+T\+\_\+data\+\_\+processing\+::\+R\+E\+T\+\_\+data\+\_\+processing}!inside\+\_\+one\+\_\+button\+\_\+area@{inside\+\_\+one\+\_\+button\+\_\+area}}

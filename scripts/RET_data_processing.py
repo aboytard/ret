@@ -23,6 +23,9 @@ Created on Thu Jan 21 12:50:30 2021
 # -custom class :
 #       - RET_Parameter
 #       - Btn_area defined in RET_config
+#
+#@section todo
+# Add the possibility for the user to erase the data that were on the database he is gonna use, if he is doing the same measurements than before.
 
 import RET_Parameter
 import RET_config
@@ -79,7 +82,7 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
                             self.parameter.end_effector_position_entering_button_area = [str(button_area.time_end_effector_entering_area),self.parameter.BtnMasherApplication_output.x,self.parameter.BtnMasherApplication_output.y,self.parameter.BtnMasherApplication_output.z]
                             button_area.send_message_entering_area = True
                             print ("we have enter the area of : ", button_area.name)
-                            self.parameter.BtnMasherApplication_output.print_end_effector_position_information()
+#                            self.parameter.BtnMasherApplication_output.print_end_effector_position_information()
                             self.datetime_button_entering_area = button_area.time_end_effector_entering_area 
 
 
@@ -132,9 +135,9 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
                         print ("time entering =", button_area.time_end_effector_entering_area)
                         print("time middle pressed = ", self.parameter.time_to_compare)
                         print ("time leaving =", button_area.time_end_effector_leaving_area)
-                        print("we are stopping the simulation because of an error of time detected")
                         if RET_config.real_time_processing:
                             RET_config.stop_thread = True
+                            print("we are stopping the simulation because of an error of time detected")
 
         self.write_into_influxdb(self.client)
         self.write_json_influxdb_RET(self.client,success)
@@ -241,44 +244,15 @@ class RET_data_processing(threading.Thread,RET_Parameter.RET_Parameter):
             }
         ]      
     
-        json_body_entering_button_area = [
-            {
-                "measurement": self.parameter.influxdb_measurement_RET_enter_button_area ,
-                "tags": {
-                    "requestName": "enter_area_measurement",
-                    "requestType": "GET"
-                },
-                "time": self.parameter.end_effector_position_entering_button_area[0],#datetime.datetime.utcnow(),
-                 "fields": {
-                    "x":  self.parameter.end_effector_position_entering_button_area[1], 
-                    "y": self.parameter.end_effector_position_entering_button_area[2],
-                    "z": self.parameter.end_effector_position_entering_button_area[3]
-                            }
-            }
-        ]    
-        json_body_leaving_button_area = [
-            {
-                "measurement": self.parameter.influxdb_measurement_RET_leave_button_area,
-                "tags": {
-                    "requestName": "leave_area_measurement",
-                    "requestType": "GET"
-                },
-                "time":self.parameter.end_effector_position_leaving_button_area[0],#datetime.datetime.utcnow(),
-                 "fields": {
-                    "x": self.parameter.end_effector_position_leaving_button_area[1], 
-                    "y": self.parameter.end_effector_position_leaving_button_area[2],
-                    "z": self.parameter.end_effector_position_leaving_button_area[3]
-                            }
-            }
-        ]         
+     
         client.write_points(json_body_RET)
         client.write_points(json_body_RET_entering_time)
         client.write_points(json_body_RET_pressing_time)
         client.write_points(json_body_RET_comparing_time)
         client.write_points(json_body_RET_unpressing_time)
         client.write_points(json_body_RET_leaving_time)
-        client.write_points(json_body_entering_button_area)
-        client.write_points(json_body_leaving_button_area)
+#        client.write_points(json_body_entering_button_area)
+#        client.write_points(json_body_leaving_button_area)
         print("writing in Influxdb is made")
     
     def write_json_influxdb_additional_information(self,client):

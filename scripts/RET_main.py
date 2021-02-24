@@ -52,7 +52,7 @@ def main(list_buttons_area):
         ##create the node listener
         ##create the processing and data log
         th_Computer_data_processing = RET_data_processing.RET_data_processing(parameter)
-        th_Computer_data_processing.setDaemon(True)
+#        th_Computer_data_processing.setDaemon(True)
         th_Computer_data_processing.start()
         ##create the socket communication
         socket_client = RET_socket.Computer_SocketClient_RET(parameter)

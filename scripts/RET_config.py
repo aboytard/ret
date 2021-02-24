@@ -33,7 +33,7 @@ stop_thread = False
 
 ## global variable for the socket communication
 socket_host = '10.4.11.117'
-socket_port = 5003
+socket_port = 5001
 
 ## global variable for the data storage
 influxdb_host="localhost"
@@ -99,12 +99,12 @@ class Btn_area(Btn):
         self.time_end_effector_leaving_area = datetime.datetime.utcnow()
  
  ## definition of the buttons
-delta_area = [0.06,0.03,0.01]    
+delta_area = [0.06,0.06,0.013]    
 x1 = -0.1
-y1 = -0.45
+y1 = -0.41  
 z1 = 0.145
 x2 = 0.05
-y2 = -0.45
+y2 = -0.41
 z2 = 0.145
 Btn1 = Btn("Btn1",x1,y1,z1)
 Btn2 = Btn("Btn2",x2,y2,z2)

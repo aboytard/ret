@@ -44,7 +44,7 @@ class Button_Masher_Application_node_listener():
         self.actual_state= ()
         self.encoded_state=()
         self.error_state=()
-        self.cartesian_position_end_effector=""
+        self.cartesian_position_end_effector=()
         self.temperature=""
         self.voltage=""
         self.client = InfluxDBClient(host="localhost",port="8086",username='ret', password='asdf', database=RET_config.influxdb)
@@ -60,7 +60,27 @@ class Button_Masher_Application_node_listener():
         self.x = diagnostics.pose.position.x
         self.y = diagnostics.pose.position.y
         self.z = diagnostics.pose.position.z
-    
+        self.write_into_db(self.client)
+        self.data = self.write_info_json_into_db(self.client)
+        
+    def write_info_json_into_db(self,client):
+        json_body_end_effector_cartesian = [
+            {
+                "measurement": "end_effector_position",
+                "tags": {
+                    "requestName": "end_effector_position",
+                    "requestType": "GET"
+                },
+                "time":datetime.datetime.utcnow(),
+                 "fields": {
+                    "x": self.x,
+                    "y": self.y,
+                    "z": self.z
+                            }
+            }
+        ]
+        client.write_points(json_body_end_effector_cartesian)
+            
     def print_end_effector_position_information(self):
         """! Retrieves the Button_Masher_Application_Output.
         @return  the cartesian position of the end effector while the node tool_pose_publisher_use is running.
@@ -75,7 +95,7 @@ class Button_Masher_Application_node_listener():
         self.encoded_state=diagnostics.desired.positions
         self.error_state=diagnostics.error.positions
         self.write_into_db(self.client)
-        self.data = self.write_info_json_into_db(self.client)
+        self.data = self.write_info_json_into_db_additional(self.client)
 #        self.print_all_info()
 
     
@@ -90,7 +110,8 @@ class Button_Masher_Application_node_listener():
         client.switch_database(RET_config.influxdb)
         
         
-    def write_info_json_into_db(self,client):
+    def write_info_json_into_db_additional(self,client):
+
         json_body_actual = [
             {
                 "measurement": "actual_state",
@@ -147,7 +168,7 @@ class Button_Masher_Application_node_listener():
                             }
             }
         ]
-   
+    
         client.write_points(json_body_actual)
         client.write_points(json_body_encoded)
         client.write_points(json_body_error)
