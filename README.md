@@ -85,6 +85,7 @@ Step 1) Launch the moveit driver + the /tool_pose_publisher:
 Step 2) Make sure that the Button Pressing Detection is running on the RPi, and that the socket's client and servers are connecting on the same IP adress.  
 
 Step 3) Run the RET node :  
+`cd workspace/ret/src/ret/scripts` : You must run this node from the folder where you have put the scripts to use a relative path instead of a global path.
 ` rosrun ret RET_main.py `
 
 Step 4) Run the Button Masher Application node:  

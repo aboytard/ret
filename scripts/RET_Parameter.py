@@ -97,8 +97,8 @@ class RET_Parameter(Button_Masher_Application_Output.Button_Masher_Application_n
         
         print ("The database in influx db is named: ", self.influxdb)
         ##### parameter for writing csv_file
-        self.csv_name_file = '/home/ret/workspaces/ret/src/ret/scripts/RET_csv_logfile/' + (self.button_names + str(self.list_buttons_positions) + "["+ str(self.list_buttons_area[0].dx) + ";" + str(self.list_buttons_area[0].dy) + ";"  + 
-        str(self.list_buttons_area[0].dz)+"_acceleration_factor_[" + str(self.acceleration_factor) +"]_velocity_factor_["+ str(self.velocity_factor) + "]_robot_settle_time_["+
+        self.csv_name_file = (self.button_names + str(self.list_buttons_positions) + "["+ str(self.list_buttons_area[0].dx) + ";" + str(self.list_buttons_area[0].dy) + ";" + 
+        str(self.list_buttons_area[0].dz)+"]_acceleration_factor_[" + str(self.acceleration_factor) +"]_velocity_factor_["+ str(self.velocity_factor) + "]_robot_settle_time_["+
         str(self.robot_settle_time) + "]_"+RET_config.driver_used+".csv")
         self.csv_header =  ['datetime.utcnow','Btn_name',"time_end_effector_entering","time_button_pressed","time_compared","time_button_unpressed","time_end_effector_leaving","success"]
         self.open_csv_file()
@@ -108,11 +108,11 @@ class RET_Parameter(Button_Masher_Application_Output.Button_Masher_Application_n
         @return  a csv file where we can log the data for a RET.
         """
         try:
-            with open(self.csv_name_file,"aw") as f:
-                cr = csv.writer(f,delimiter=";",lineterminator="\n")
+            with open('./RET_csv_logfile/' + self.csv_name_file,"aw") as f:
+                cr = csv.writer(f,delimiter=",",lineterminator="\n")
                 cr.writerow(self.csv_header)                
         except:
-            with open(self.csv_name_file,"w") as f:
-                cr = csv.writer(f,delimiter=";",lineterminator="\n")
+            with open('./RET_csv_logfile/' + self.csv_name_file,"w") as f:
+                cr = csv.writer(f,delimiter=",",lineterminator="\n")
                 cr.writerow(self.csv_header)
   
